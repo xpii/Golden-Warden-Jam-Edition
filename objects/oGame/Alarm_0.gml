@@ -41,6 +41,7 @@ switch(turn_statement) {
 	// 終了
 	case 5:
 	turn_statement = 0;
+	combo = 0;
 	control = true;
 	break;
 }

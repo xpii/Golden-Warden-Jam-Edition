@@ -16,12 +16,17 @@ if(point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-sprite_height/2, x+s
 			}
 		
 			// プレイヤーに情報を格納
-			remain_move = other.num;
+			remain_move = other.walk;
 			weapon = other.weapon;
 		}
 		
 		instance_destroy();
-		if(!disposable) instance_create_layer(x,y,"Tile",oCard);
+		if(disposable) oGame.nums_of_cards--;
+		else {
+			with(instance_create_layer(x,y,"Tile",oCard)) {
+				num = other.num;
+			}
+		}
 	}
 }
 

@@ -10,6 +10,7 @@ nums_of_reusable_cards = nums_of_cards;	// 再利用可能なカードの所持�
 
 control = true;		// 操作可能時間かどうか
 turn_statement = 0;	// ターン全体の処理変数(
+combo = 0;
 
 // ダンジョン生成
 repeat(7) {
@@ -32,5 +33,7 @@ instance_create_layer(start_x, start_y, "Mobs", oPlayer);
 
 // カード生成
 for(var _i=0; _i<nums_of_cards; _i++) {
-	instance_create_layer(6*TILESIZE+_i*128, 9*TILESIZE, "Tile", oCard);
+	with(instance_create_layer(6*TILESIZE+_i*96, 9*TILESIZE, "Tile", oCard)) {
+		num = _i;
+	}
 }

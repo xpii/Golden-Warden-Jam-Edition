@@ -9,5 +9,11 @@ else {
 	current_depth = follow.num;
 }
 
-
-if(hp <= 0) instance_destroy();
+// 倒された場合コンボ数だけ追加カードを得る
+if(hp <= 0) {
+	instance_destroy();
+	oGame.combo++;
+	repeat(oGame.combo) {
+		addCard();
+	}
+}
