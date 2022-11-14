@@ -25,8 +25,21 @@ switch(turn_statement) {
 	}
 	break;
 	
-	// 終了
+	// 状態変化の残り時間を減らす
 	case 4:
+		if(instance_exists(pStateChange)) {
+		with(pStateChange) {
+			alarm[0] = 1;	
+		}
+	}
+	else {
+		turn_statement = 5;
+		alarm[0] = TURNSTEP;
+	}
+	break;
+	
+	// 終了
+	case 5:
 	turn_statement = 0;
 	control = true;
 	break;

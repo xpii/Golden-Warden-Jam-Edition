@@ -10,6 +10,8 @@ function tileEffect(){
 			if(type == "coin") other.coin++;
 			else if(type == "hp") other.hp = min(other.hp+1, other.maxHp);
 			else if(type == "boom") boom();
+			
+			type = "";
 		}
 	}
 	

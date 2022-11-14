@@ -7,7 +7,7 @@ target = oPlayer;
 current_depth = -1;			// 現在のマス目
 weapon = "";			// 攻撃方法
 
-maxHp = irandom_range(1,3);
+maxHp = 1;
 hp = maxHp;
 
 atk = 1;
@@ -15,5 +15,7 @@ guard = false;				// ガード中かどうか
 
 
 target = noone;
+
+alarm[11] = 1;
 
 

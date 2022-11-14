@@ -7,6 +7,6 @@ type = choose("coin", "hp", "boom","enemy");
 
 if(type == "enemy") {
 	with(instance_create_layer(x,y,"Mobs",oEnemy)) {
-		follow = other;	
+		follow = other;
 	}
 }

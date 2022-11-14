@@ -27,12 +27,9 @@ else {
 	
 	// 攻撃がある場合攻撃処理
 	if(weapon != "") {
-		target = oEnemy;
 		
 		// 攻撃。不発ならタイル処理
-		if(attack(weapon, target, RIGHT) == 0) {
-			target = noone;
-			
+		if(attack(weapon, oEnemy, RIGHT) == 0) {
 			oGame.turn_statement = 2;
 			oGame.alarm[0] = 1;
 		}
@@ -42,8 +39,6 @@ else {
 	else {
 		// サブウェポンも無ければタイル処理
 		if(subWeapon == "") {
-			target = noone;
-			
 			oGame.turn_statement = 2;
 			oGame.alarm[0] = 1;
 		}
@@ -52,10 +47,9 @@ else {
 			// 攻撃が残っていれば次の攻撃
 			weapon = subWeapon;
 			subWeapon = "";
-			target = oEnemy;
 			
 			// 攻撃。不発ならタイル処理
-			if(attack(weapon, target, RIGHT) == 0) {
+			if(attack(weapon, oEnemy, RIGHT) == 0) {
 				oGame.turn_statement = 2;
 				oGame.alarm[0] = 1;
 			}

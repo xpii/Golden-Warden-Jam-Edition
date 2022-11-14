@@ -21,7 +21,7 @@ if(point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-sprite_height/2, x+s
 		}
 		
 		instance_destroy();
-		instance_create_layer(x,y,"Tile",oCard);
+		if(!disposable) instance_create_layer(x,y,"Tile",oCard);
 	}
 }
 
