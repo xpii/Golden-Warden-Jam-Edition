@@ -18,6 +18,7 @@ function move(){
 	// 新しいタイルの生成
 	with(instance_create_layer(GEN_START_X, GEN_START_Y, "Tile", oTile)) {
 		num = oGame.current_depth;
+		if(num < 4) type = "";
 	}
 }
 
