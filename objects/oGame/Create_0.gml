@@ -3,7 +3,8 @@
 randomize();
 
 current_depth = 0;	// 現在のダンジョン深度
-nums_of_tiles = 11;	// タイルの同時描画枚数
+max_depth = 40;		// 一エリアの最大深度
+view_range = 6;		// 見る事の出来る先のマスの数
 
 nums_of_cards = 3;						// カードの所持数
 nums_of_reusable_cards = nums_of_cards;	// 再利用可能なカードの所持数
@@ -13,9 +14,7 @@ turn_statement = 0;	// ターン全体の処理変数(
 combo = 0;
 
 // ダンジョン生成
-repeat(7) {
-	move();
-}
+generate();
 
 start_x = 0;
 start_y = 0;

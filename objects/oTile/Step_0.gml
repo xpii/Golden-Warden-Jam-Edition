@@ -1,8 +1,14 @@
 /// @description
 
-if(num == oGame.current_depth - oGame.nums_of_tiles) image_alpha = 0.2;
-else if(num == oGame.current_depth) image_alpha = 0.2;
-else image_alpha = 1;
+if(num < oPlayer.current_depth - 3 || num > oPlayer.current_depth + oGame.view_range) {
+	image_alpha = 0.2;
+	activate = false;
+}
+
+else {
+	image_alpha = 1;
+	activate = true;
+}
 
 
 

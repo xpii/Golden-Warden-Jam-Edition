@@ -9,6 +9,7 @@
     {"id":{"name":"oTile","path":"objects/oTile/oTile.yy",},"order":1,},
     {"id":{"name":"oCursor","path":"objects/oCursor/oCursor.yy",},"order":7,},
     {"id":{"name":"sHeart","path":"sprites/sHeart/sHeart.yy",},"order":6,},
+    {"id":{"name":"Room2","path":"rooms/Room2/Room2.yy",},"order":1,},
     {"id":{"name":"sArrow","path":"sprites/sArrow/sArrow.yy",},"order":5,},
     {"id":{"name":"addCard","path":"scripts/addCard/addCard.yy",},"order":3,},
     {"id":{"name":"stage","path":"scripts/stage/stage.yy",},"order":0,},
@@ -49,6 +50,7 @@
   },
   "RoomOrderNodes": [
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"Room2","path":"rooms/Room2/Room2.yy",},},
   ],
   "Folders": [
     {"resourceType":"GMFolder","resourceVersion":"1.0","name":"Animation Curves","folderPath":"folders/Animation Curves.yy","order":12,},
