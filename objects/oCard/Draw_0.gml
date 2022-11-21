@@ -3,4 +3,5 @@
 
 draw_self();
 draw_text(x,y-16,walk);
-draw_text(x,y,weapon);
+
+draw_sprite(sIcons, weapon, x, y+8);

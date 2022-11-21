@@ -19,14 +19,14 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 						if(hp <= oPlayer.atk*2 && !guard) {
 							with(oCursor) {
 								x = other.x;
-								y = other.y;
+								y = other.y - TILESIZE;
 							}
 						}
 						// 倒せない場合
 						else {
 							with(oCursor) {
 								x = other.x - TILESIZE;
-								y = other.y;
+								y = other.y - TILESIZE;
 							}
 						}
 						// 終了
@@ -45,7 +45,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		if(_extra_walk >= 0) {
 			with(oCursor) {
 				x = oPlayer.x + TILESIZE*(other.walk+_extra_walk);
-				y = oPlayer.y;
+				y = oPlayer.y - TILESIZE;
 			}
 		}
 	}
@@ -59,12 +59,6 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			oGame.alarm[0] = 1;
 		
 			with(oPlayer) {
-				// 移動前に攻撃が余っていたらsubWeaponに格納
-				if(weapon != "") {
-					subWeapon = weapon;
-					weapon = "";
-				}
-		
 				// プレイヤーに情報を格納
 				remain_move = other.walk;
 				weapon = other.weapon;

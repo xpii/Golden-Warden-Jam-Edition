@@ -26,7 +26,7 @@ if(remain_move > 0) {
 else {
 	
 	// 攻撃がある場合攻撃処理
-	if(weapon != "") {
+	if(weapon != 0) {
 		
 		// 攻撃。不発ならタイル処理
 		if(attack(weapon, oEnemy, RIGHT) == 0) {
@@ -38,7 +38,7 @@ else {
 	// 攻撃が無い場合
 	else {
 		// サブウェポンも無ければタイル処理
-		if(subWeapon == "") {
+		if(subWeapon == 0) {
 			oGame.turn_statement = 2;
 			oGame.alarm[0] = 1;
 		}
@@ -46,7 +46,7 @@ else {
 		else {
 			// 攻撃が残っていれば次の攻撃
 			weapon = subWeapon;
-			subWeapon = "";
+			subWeapon = 0;
 			
 			// 攻撃。不発ならタイル処理
 			if(attack(weapon, oEnemy, RIGHT) == 0) {

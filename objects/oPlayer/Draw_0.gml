@@ -2,12 +2,13 @@
 draw_self();
 
 
-draw_text(x,y-16*4,remain_move);
-draw_text(x,y-16*6,weapon);
-draw_text(x,y-16*8,subWeapon);
+draw_text(x,y-8*4,remain_move);
+
+draw_sprite(sIcons, weapon, x, y-8*6);
+draw_sprite(sIcons, subWeapon, x, y-8*8);
 
 
-draw_text(x,y+48,current_depth);
+draw_text(x,y+24,current_depth);
 
 draw_text(TILESIZE, TILESIZE, "HP:");
 

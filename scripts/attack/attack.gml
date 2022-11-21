@@ -1,6 +1,10 @@
 #macro RIGHT 1	// →
 #macro LEFT -1	// ←
 
+#macro SWORD 1
+#macro BOW 2
+#macro SHIELD 3
+
 /// @desc attack(weapon);	攻撃処理	oPlayer	oEnemy
 /// @arg weapon
 /// @arg target
@@ -8,14 +12,14 @@
 function attack(_weapon, _target, _dir){
 	
 	// 剣
-	if(_weapon == "sword") {
+	if(_weapon == SWORD) {
 		// 一マス先の敵にx2ダメージ
 		with(_target) {
 			if(_dir == RIGHT && current_depth = other.current_depth + 1 || _dir == LEFT && current_depth = other.current_depth - 1) {
 				// エフェクト
 				instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
 				damage(self, atk*2);
-				other.weapon = "";
+				other.weapon = 0
 				if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 				break;
 			}
@@ -25,10 +29,12 @@ function attack(_weapon, _target, _dir){
 	}
 	
 	// 弓
-	else if(_weapon == "bow") {
+	else if(_weapon == BOW) {
 		// 前方の敵に1ダメージ
 		with(_target) {
-			if(!follow.activate) continue;
+			if(_target.object_index == oEnemy) {
+				if(!follow.activate) continue;
+			}
 			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {
 				// エフェクト
 				if(_dir == RIGHT) {
@@ -45,7 +51,7 @@ function attack(_weapon, _target, _dir){
 						target = oPlayer;
 					}
 				}
-				other.weapon = "";
+				other.weapon = 0
 				break;
 			}
 		}
@@ -54,13 +60,13 @@ function attack(_weapon, _target, _dir){
 	}
 	
 	// 盾
-	else if(_weapon == "shield") {
+	else if(_weapon == SHIELD) {
 		// 盾を発動
 		with(instance_create_layer(x, y, "Mobs", oGuard)) {
 			follow = other;	
 		}
 		guard = true;
-		weapon = "";
+		weapon = 0
 		if(object_index == oPlayer) alarm[0] = TURNSTEP;
 	}
 	else {

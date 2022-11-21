@@ -7,10 +7,10 @@ if(!follow.activate) {
 }
 
 // 攻撃をセット
-if(weapon == "") {
-	if(current_depth < 50) weapon = "sword";
-	else if(current_depth < 100) weapon = choose("sword","bow");
-	else if(current_depth >= 100) weapon = choose("sword","bow","shield");
+if(weapon == 0) {
+	if(oMain.level < 2) weapon = SWORD;
+	else if(oMain.level < 3) weapon = choose(SWORD,BOW);
+	else weapon = choose(SWORD,BOW,SHIELD);
 }
 
 // 攻撃がある場合攻撃処理

@@ -1,28 +1,35 @@
 // マップ生成関連
-#macro TILESIZE 64
+#macro TILESIZE 32
 
 #macro GEN_START_X 6*TILESIZE
 #macro GEN_START_Y 7*TILESIZE
 
 ///@desc move()	ゲームマップを一マス進める
 function move(){
-	// 深度+1
-	if(instance_exists(oPlayer)) oPlayer.current_depth++;
 	
-	// マップ全体を一マス分横にずらす
-	with(oTile) {
-		x -= sprite_width;
+	// 深度+1
+	if(instance_exists(oPlayer)) {
+		if(oPlayer.current_depth < oGame.max_depth) {
+			oPlayer.current_depth++;
+	
+			// マップ全体を一マス分横にずらす
+			with(oTile) {
+				x -= sprite_width;
+			}
+		}
 	}
 }
 
 ///@desc back()	ゲームマップを一マス戻す
 function back(){
 	// 深度-1
-	if(instance_exists(oPlayer)) oPlayer.current_depth--;
+	if(instance_exists(oPlayer)) {
+		oPlayer.current_depth--;
 	
-	// マップ全体を一マス分横にずらす
-	with(oTile) {
-		x += sprite_width;
+		// マップ全体を一マス分横にずらす
+		with(oTile) {
+			x += sprite_width;
+		}
 	}
 }
 

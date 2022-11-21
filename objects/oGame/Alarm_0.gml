@@ -40,6 +40,13 @@ switch(turn_statement) {
 	
 	// 終了
 	case 5:
+	// ターン終了時に攻撃が余っていたらsubWeaponに格納
+	with(oPlayer) {
+		if(weapon != 0) {
+			subWeapon = weapon;
+			weapon = 0;
+		}
+	}
 	turn_statement = 0;
 	combo = 0;
 	control = true;

@@ -1,7 +1,7 @@
 /// @description 
 
 draw_self();
-draw_text(x,y-64,hp);
-draw_text(x,y-16*6,weapon);
+draw_text(x,y-32,hp);
+draw_sprite(sIcons, weapon, x, y-8*6);
 
 

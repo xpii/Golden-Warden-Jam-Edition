@@ -11,6 +11,10 @@ function tileEffect(){
 			else if(type == "hp") other.hp = min(other.hp+1, other.maxHp);
 			else if(type == "boom") boom();
 			
+			else if(type == "stair") {
+				oMain.level++;
+				room_goto(rStage);
+			}
 			type = "";
 		}
 	}

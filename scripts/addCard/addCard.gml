@@ -12,7 +12,7 @@ function addCard(){
 			
 			if(!_check) {
 				// ダブリnumが居なければそこに挿入
-				with(instance_create_layer(6*TILESIZE+_i*96, 9*TILESIZE, "Tile", oCard)) {
+				with(instance_create_layer(6*TILESIZE+_i*48, 9*TILESIZE, "Tile", oCard)) {
 					disposable = true;
 					num = _i;
 				}
