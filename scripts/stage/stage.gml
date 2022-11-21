@@ -14,7 +14,10 @@ function move(){
 	
 			// マップ全体を一マス分横にずらす
 			with(oTile) {
-				x -= sprite_width;
+				x -= TILESIZE;
+			}
+			with(oLog) {
+				x -= TILESIZE;
 			}
 		}
 	}
@@ -28,7 +31,10 @@ function back(){
 	
 		// マップ全体を一マス分横にずらす
 		with(oTile) {
-			x += sprite_width;
+			x += TILESIZE;
+		}
+		with(oLog) {
+			x += TILESIZE;
 		}
 	}
 }

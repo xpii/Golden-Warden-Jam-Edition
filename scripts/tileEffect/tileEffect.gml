@@ -7,10 +7,17 @@ function tileEffect(){
 	// 足元のタイルの効果を発動
 	with(oTile) {
 		if(num == other.current_depth) {
-			if(type == "coin") other.coin++;
-			else if(type == "hp") other.hp = min(other.hp+1, other.maxHp);
+			if(type == "coin") {
+
+				other.coin++;
+			}
+			else if(type == "hp") {
+				
+				other.hp = min(other.hp+1, other.maxHp);
+			}
 			else if(type == "boom") boom();
 			
+			// 次のエリアに移動
 			else if(type == "stair") {
 				oMain.level++;
 				room_goto(rStage);

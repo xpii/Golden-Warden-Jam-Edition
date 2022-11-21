@@ -23,7 +23,7 @@ if(target != noone) {
 	else {
 		// 次の移動 or 移動後の処理
 		target = noone;
-		alarm[0] = 1;	
+		alarm[0] = 1;
 	}
 }
 

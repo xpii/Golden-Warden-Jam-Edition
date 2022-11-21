@@ -12,7 +12,7 @@ if(remain_move > 0) {
 			if(other.current_depth == follow.num) {
 				other.remain_move++;
 				other.target = self;
-				other.alarm[1] = 1;
+				other.alarm[1] = 5;
 				break;
 			}
 		}
