@@ -1,9 +1,3 @@
-// マップ生成関連
-#macro TILESIZE 32
-
-#macro GEN_START_X 6*TILESIZE
-#macro GEN_START_Y 7*TILESIZE
-
 ///@desc move()	ゲームマップを一マス進める
 function move(){
 	
@@ -48,4 +42,6 @@ function generate(){
 			if(num < 4) type = "";
 		}
 	}
+	// 初期化
+	if(instance_exists(oPlayer)) oPlayer.current_depth = 1;
 }

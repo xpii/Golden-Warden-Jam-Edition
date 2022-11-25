@@ -17,10 +17,17 @@ function tileEffect(){
 			}
 			else if(type == "boom") boom();
 			
-			// 次のエリアに移動
+			// パーク選択
 			else if(type == "stair") {
-				oMain.level++;
-				room_goto(rStage);
+				// ターン終了
+				oGame.turn_statement = 5;
+				oGame.alarm[0] = 1;
+				
+				// パーク生成
+				oGame.alarm[1] = 2;
+				return;
+				
+
 			}
 			type = "";
 		}

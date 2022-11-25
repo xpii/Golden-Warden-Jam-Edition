@@ -67,7 +67,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			instance_destroy();
 			if(disposable) oGame.nums_of_cards--;
 			else {
-				with(instance_create_layer(x,y,"Tile",oCard)) {
+				with(instance_create_layer(x,y,"Info",oCard)) {
 					num = other.num;
 				}
 			}

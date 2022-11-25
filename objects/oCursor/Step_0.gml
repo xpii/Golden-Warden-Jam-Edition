@@ -8,6 +8,6 @@ with(oCard) {
 }
 
 if(_num == -1) {
-	x = TILESIZE;
-	y = TILESIZE;
+	x = -TILESIZE;
+	y = -TILESIZE;
 }

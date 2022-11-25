@@ -16,4 +16,7 @@ if(hp <= 0) {
 	repeat(oGame.combo) {
 		addCard();
 	}
+	repeat(oGame.combo-1) {
+		addCardSup();
+	}
 }

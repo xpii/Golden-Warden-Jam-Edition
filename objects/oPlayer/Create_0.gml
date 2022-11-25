@@ -11,7 +11,6 @@ target = noone;
 maxHp = 6;
 hp = maxHp;
 
-reroll = 3;
 coin = 0;
 
 atk = 1;

@@ -1,14 +1,3 @@
-#macro RIGHT 1	// →
-#macro LEFT -1	// ←
-
-#macro SWORD 1
-#macro BOW 2
-#macro SHIELD 3
-#macro SCYTHE 4
-#macro DUALSWORD 5
-#macro XBOW 6
-#macro GRENADE 7
-
 /// @desc attack(weapon);	攻撃処理	oPlayer	oEnemy
 /// @arg weapon
 /// @arg target
