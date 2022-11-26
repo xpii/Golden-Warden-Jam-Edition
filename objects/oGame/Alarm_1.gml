@@ -44,7 +44,11 @@ else {
 	if(oPlayer.current_depth >= oGame.max_depth) {
 		// 削除
 		with(oTile) instance_destroy();
-		with(pStateChange) instance_destroy();	
+		with(pStateChange) instance_destroy();
+		
+		// プレイヤーの武装解除
+		oPlayer.weapon = 0;
+		oPlayer.subWeapon = 0;
 
 		// ステージ生成
 		oMain.level++;

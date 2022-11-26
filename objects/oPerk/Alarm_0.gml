@@ -9,11 +9,13 @@ switch(type) {
 	// リストのWEP_SWORDをWEP_SCYTHEに置き換え、同パークを選択肢から除去
 	ds_list_replace(oMain.weapons, ds_list_find_index(oMain.weapons, WEP_SWORD), WEP_SCYTHE);
 	ds_list_delete(oMain.perks, ds_list_find_index(oMain.perks, PERK_SWORD_UPGRADE));
+	ds_list_delete(oMain.perks, ds_list_find_index(oMain.perks, PERK_SWORD_DUAL));
 	break;
 	
 	case PERK_SWORD_DUAL:
 	// リストのWEP_SWORDをWEP_DUALSWORDに置き換え、同パークを選択肢から除去
 	ds_list_replace(oMain.weapons, ds_list_find_index(oMain.weapons, WEP_SWORD), WEP_DUALSWORD);
+	ds_list_delete(oMain.perks, ds_list_find_index(oMain.perks, PERK_SWORD_UPGRADE));
 	ds_list_delete(oMain.perks, ds_list_find_index(oMain.perks, PERK_SWORD_DUAL));
 	break;
 	

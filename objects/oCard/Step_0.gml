@@ -19,14 +19,14 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 						if(hp <= oPlayer.atk*2 && !guard) {
 							with(oCursor) {
 								x = other.x;
-								y = other.y - TILESIZE;
+								y = other.y + TILESIZE/2;
 							}
 						}
 						// 倒せない場合
 						else {
 							with(oCursor) {
 								x = other.x - TILESIZE;
-								y = other.y - TILESIZE;
+								y = other.y + TILESIZE/2;
 							}
 						}
 						// 終了
@@ -45,7 +45,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		if(_extra_walk >= 0) {
 			with(oCursor) {
 				x = oPlayer.x + TILESIZE*(other.walk+_extra_walk);
-				y = oPlayer.y - TILESIZE;
+				y = oPlayer.y + TILESIZE/2;
 			}
 		}
 	}

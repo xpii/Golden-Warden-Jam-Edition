@@ -3,6 +3,10 @@
 // 攻撃
 if(target != noone) {
 	var _guard = target.guard;	// ターゲットがガード状態かどうか保存　ガード状態は通り抜け不可
+	// Slash表示
+	with(instance_create_layer(x,y-16,"info",oLog)) {
+		text = "Slash!"
+	}
 	damage(target, atk+1);
 	
 	// 通り抜け不可の場合移動力を失う

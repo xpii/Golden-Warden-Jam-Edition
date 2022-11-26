@@ -8,12 +8,20 @@ function tileEffect(){
 	with(oTile) {
 		if(num == other.current_depth) {
 			if(type == "coin") {
-
+				// 表示
+				with(instance_create_layer(x,y-16,"info",oLog)) {
+					text = "+1 coin"
+				}
 				other.coin++;
 			}
 			else if(type == "hp") {
-				
 				other.hp = min(other.hp+1, other.maxHp);
+				
+				// 表示
+				with(instance_create_layer(x,y-16,"info",oLog)) {
+					if(oPlayer.hp == oPlayer.maxHp) text = "MAX HP"
+					else text = "+1 HP"
+				}
 			}
 			else if(type == "boom") boom();
 			

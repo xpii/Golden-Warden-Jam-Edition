@@ -2,7 +2,7 @@
 
 switch(type) {
 	case PERK_ATK_UP:
-	price = 15;
+	price = 20;
 	desc = "こうげきりょく +1";
 	break;
 	
@@ -15,7 +15,7 @@ switch(type) {
 	desc = "ソードをデュアルソードにアップグレード";
 	break;
 	case PERK_BOW_UPGRADE:
-	price = 10;
+	price = 15;
 	desc = "ボウをクロスボウにアップグレード";
 	break;
 	case PERK_BOMB_ADD:
