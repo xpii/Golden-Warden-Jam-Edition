@@ -13,9 +13,16 @@ else {
 if(hp <= 0) {
 	instance_destroy();
 	oGame.combo++;
+	
+	// コイン
+	repeat(oGame.combo) {
+		oPlayer.coin++;
+	}
+	// アクションカード
 	repeat(oGame.combo) {
 		addCard();
 	}
+	// サポートカード
 	repeat(oGame.combo-1) {
 		addCardSup();
 	}

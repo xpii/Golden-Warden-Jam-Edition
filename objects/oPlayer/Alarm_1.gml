@@ -3,7 +3,7 @@
 // 攻撃
 if(target != noone) {
 	var _guard = target.guard;	// ターゲットがガード状態かどうか保存　ガード状態は通り抜け不可
-	damage(target, atk*2);
+	damage(target, atk+1);
 	
 	// 通り抜け不可の場合移動力を失う
 	if(place_meeting(target.x+TILESIZE, target.y, oEnemy) || _guard) {

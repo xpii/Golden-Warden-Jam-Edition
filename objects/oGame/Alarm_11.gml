@@ -27,6 +27,9 @@ for(var _i=0; _i<nums_of_cards; _i++) {
 	}
 }
 
+// サポートカード生成
+repeat(2) addCardSup();
+
 // カードバック生成
 for(var _i=0; _i<3; _i++) {
 	instance_create_layer(room_width/2+(_i-1)*48, 9*TILESIZE, "Tile", oCardBack);

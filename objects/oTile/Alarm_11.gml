@@ -11,6 +11,3 @@ if(type == "enemy") {
 		follow = other;
 	}
 }
-
-
-

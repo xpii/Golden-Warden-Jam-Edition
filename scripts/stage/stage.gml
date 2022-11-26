@@ -35,13 +35,28 @@ function back(){
 
 ///@desc generate() 1エリアを生成する
 function generate(){
-	for(var _i=1; _i<=40; _i++) {
+	for(var _i=1; _i<=oGame.max_depth; _i++) {
 		// 新しいタイルの生成
 		with(instance_create_layer(GEN_START_X+TILESIZE*_i, GEN_START_Y, "Tile", oTile)) {
 			num = _i
 			if(num < 4) type = "";
 		}
 	}
+	
+	// 敵の生成
+	repeat(10+oMain.level) {
+		var _num = irandom_range(4, oGame.max_depth-1);
+		with(oTile) {
+			if(num == _num) type = "enemy";
+		}
+	}
+	
+	// ショップの生成（ステージの真ん中あたりに一つ）
+	var _num = irandom_range(oGame.max_depth/2-5, oGame.max_depth/2+5);
+	with(oTile) {
+		if(num == _num) type = "shop";
+	}
+	
 	// 初期化
 	if(instance_exists(oPlayer)) oPlayer.current_depth = 1;
 }

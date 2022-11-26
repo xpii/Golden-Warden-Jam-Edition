@@ -18,7 +18,7 @@ function tileEffect(){
 			else if(type == "boom") boom();
 			
 			// パーク選択
-			else if(type == "stair") {
+			else if(type == "stair" || type == "shop") {
 				// ターン終了
 				oGame.turn_statement = 5;
 				oGame.alarm[0] = 1;
@@ -26,8 +26,6 @@ function tileEffect(){
 				// パーク生成
 				oGame.alarm[1] = 2;
 				return;
-				
-
 			}
 			type = "";
 		}

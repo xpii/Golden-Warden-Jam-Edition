@@ -9,14 +9,14 @@ if(point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-sprite_height/2, x+s
 	}
 	
 	// クリック時
-	if(mouse_check_button_pressed(mb_left)) {
-		
-		// 次ステージ
-		oGame.alarm[1] = 1;
+	if(mouse_check_button_pressed(mb_left) && oPlayer.coin >= price) {
+		alarm[0] = 1;
 	}
-	
 }
 
 else isSelected = false;
+
+if(oPlayer.coin < price) image_alpha = 0.5;
+else image_alpha = 1;
 
 

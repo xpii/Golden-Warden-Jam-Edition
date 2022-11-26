@@ -5,13 +5,13 @@
 function attack(_weapon, _target, _dir){
 	
 	// 剣
-	if(_weapon == SWORD) {
+	if(_weapon == WEP_SWORD) {
 		// 一マス先の敵にx2ダメージ
 		with(_target) {
 			if(_dir == RIGHT && current_depth = other.current_depth + 1 || _dir == LEFT && current_depth = other.current_depth - 1) {
 				// エフェクト
 				instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
-				damage(self, atk*2);
+				damage(self, other.atk*2);
 				other.weapon = 0
 				if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 				break;
@@ -22,7 +22,7 @@ function attack(_weapon, _target, _dir){
 	}
 	
 	// 弓
-	else if(_weapon == BOW) {
+	else if(_weapon == WEP_BOW) {
 		// 前方の敵に1ダメージ
 		with(_target) {
 			if(_target.object_index == oEnemy) {
@@ -53,7 +53,7 @@ function attack(_weapon, _target, _dir){
 	}
 	
 	// 盾
-	else if(_weapon == SHIELD) {
+	else if(_weapon == WEP_SHIELD) {
 		// 盾を発動
 		with(instance_create_layer(x, y, "Mobs", oGuard)) {
 			follow = other;	
@@ -63,21 +63,71 @@ function attack(_weapon, _target, _dir){
 		if(object_index == oPlayer) alarm[0] = TURNSTEP;
 	}
 	
-		// 鎌
-	else if(_weapon == SCYTHE) {
+	// 鎌
+	else if(_weapon == WEP_SCYTHE) {
 		// ２マス先の敵にx2ダメージ
 		with(_target) {
-			if(_dir == RIGHT && current_depth = other.current_depth + 2 || _dir == LEFT && current_depth = other.current_depth - 2) {
-				// エフェクト
-				instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
-				damage(self, atk*2);
-				other.weapon = 0
-				if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
-				break;
+			if(_dir == RIGHT && current_depth = other.current_depth + 2 ||
+			   _dir == RIGHT && current_depth = other.current_depth + 1 ||
+			   _dir == LEFT && current_depth = other.current_depth - 2 ||
+			   _dir == LEFT && current_depth = other.current_depth - 1) {
+				
+				damage(self, other.atk*2);
+				other.weapon = 0;
 			}
 		}
 		// 射程内に敵が居なければ発動しない
 		if(weapon == _weapon) return 0;
+		
+		// 発動した場合の処理
+		else {
+			// エフェクト
+			instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
+			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
+		}
+	}
+	
+	// 双剣
+	else if(_weapon == WEP_DUALSWORD) {
+		// １マス先の両隣の敵にx2ダメージ
+		with(_target) {
+			if(current_depth = other.current_depth + 1 || current_depth = other.current_depth - 1) {
+				damage(self, other.atk*2);
+				other.weapon = 0;
+			}
+		}
+		// 射程内に敵が居なければ発動しない
+		if(weapon == _weapon) return 0;
+		
+		// 発動した場合の処理
+		else {
+			// エフェクト
+			instance_create_layer(other.x+TILESIZE, other.y, "Mobs", oSlash);
+			instance_create_layer(other.x-TILESIZE, other.y, "Mobs", oSlash);
+			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
+		}
+	}
+	
+	// クロスボウ
+	else if(_weapon == WEP_XBOW) {
+		// 前方の敵に1ダメージ
+		with(_target) {
+			if(_target.object_index == oEnemy) {
+				if(!follow.activate) continue;
+			}
+			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {
+				damage(self, other.atk);
+				other.weapon = 0
+			}
+		}
+		// 射程内に敵が居なければ発動しない
+		if(weapon == _weapon) return 0;
+		// 発動した場合の処理
+		else {
+			// エフェクト
+
+			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
+		}
 	}
 	else {
 		return 0;

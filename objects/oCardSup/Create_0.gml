@@ -6,7 +6,7 @@ num = 0;					// カード識別
 isSelected = false;
 
 option = irandom_range(0,1);
-type = choose(REROLL);
+type = choose(SUP_REROLL);
 
 disposable = true;		// 使いきりかどうか
 
