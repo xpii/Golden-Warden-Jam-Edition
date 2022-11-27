@@ -12,7 +12,7 @@ switch(weapon) {
 	
 	case WEP_BOW:
 	desc = "まえに 1ダメージのやをはなつ";
-	_targetNum = oPlayer.current_depth - current_depth;
+	_targetNum = min(0, oPlayer.current_depth - current_depth);
 	break;
 	
 	case WEP_SHIELD:
@@ -31,22 +31,27 @@ switch(weapon) {
 	
 	case WEP_XBOW:
 	desc = "まえのてきすべてに 1ダメージ";
-	_targetNum = oPlayer.current_depth - current_depth;
+	_targetNum = min(0, oPlayer.current_depth - current_depth);
 	break;
 }
 
 if(_targetNum == 0) return;
 
 // 攻撃判定を表示
-
-with(instance_create_layer(x + _targetNum*TILESIZE, y + TILESIZE/2, "Info", oCaution)) {
-	follow = other;
+with(oTile) {
+	if(num == other.current_depth + _targetNum) {
+		drawBy = other;
+		drawMode = 2;
+	}
 }
 
 // 追加で-1にも攻撃判定を表示
 if(weapon == WEP_SCYTHE || weapon == WEP_DUALSWORD) {
-	with(instance_create_layer(x - TILESIZE, y + TILESIZE/2, "Info", oCaution)) {
-		follow = other;
+	with(oTile) {
+		if(num == other.current_depth - 1) {
+			drawBy = other;
+			drawMode = 2;
+		}
 	}
 }
 

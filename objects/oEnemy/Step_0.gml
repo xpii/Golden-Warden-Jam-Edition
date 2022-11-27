@@ -40,6 +40,6 @@ if(point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-sprite_height/2, x+s
 
 else {
 	isSelected = false;
-	with(oCaution) if(follow == other) instance_destroy();
+	with(oTile) if(drawBy == other) drawBy = self;
 	desc = "";
 }

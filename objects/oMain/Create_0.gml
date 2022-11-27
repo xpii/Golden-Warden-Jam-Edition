@@ -20,3 +20,7 @@ for(var _i=1; _i<10; _i++) {
 ds_list_add(weapons, WEP_SWORD);
 ds_list_add(weapons, WEP_BOW);
 ds_list_add(weapons, WEP_SHIELD);
+
+
+// 描画用
+n = 0;

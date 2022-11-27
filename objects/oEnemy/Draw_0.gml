@@ -1,7 +1,7 @@
 /// @description 
 
 draw_self();
-draw_text(x,y-32,hp);
+if(follow.activate) draw_text(x,y-32,hp);
 draw_sprite(sIcons, weapon, x, y-8*6);
 
 drawSetMid();

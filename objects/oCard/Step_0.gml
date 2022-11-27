@@ -8,6 +8,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		
 		// 移動地点を予測し、カーソルで表示する
 		var _extra_walk = 0;
+		var _other = self;		// oCardのインスタンス
 		
 		for(var _i=0; _i<walk+_extra_walk; _i++) {
 			with(oEnemy) {
@@ -17,16 +18,20 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 					if(place_meeting(x+TILESIZE, y, oEnemy) || guard) {
 						// 先制攻撃で倒せる場合
 						if(hp <= oPlayer.atk+1 && !guard) {
-							with(oCursor) {
-								x = other.x;
-								y = other.y + TILESIZE/2;
+							with(oTile) {
+								if(num == other.current_depth) {
+									drawMode = 1;
+									drawBy = _other;
+								}
 							}
 						}
 						// 倒せない場合
 						else {
-							with(oCursor) {
-								x = other.x - TILESIZE;
-								y = other.y + TILESIZE/2;
+							with(oTile) {
+								if(num == other.current_depth - 1) {
+									drawMode = 1;
+									drawBy = _other;	
+								}
 							}
 						}
 						// 終了
@@ -43,9 +48,11 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		}
 		
 		if(_extra_walk >= 0) {
-			with(oCursor) {
-				x = oPlayer.x + TILESIZE*(other.walk+_extra_walk);
-				y = oPlayer.y + TILESIZE/2;
+			with(oTile) {
+				if(num == oPlayer.current_depth + other.walk+_extra_walk) {
+					drawMode = 1;
+					drawBy = other;		
+				}
 			}
 		}
 	}
@@ -65,6 +72,9 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			}
 		
 			instance_destroy();
+			with(oTile) if(drawBy == other) drawBy = self;
+			
+			// 使い捨ての場合、そうでない場合
 			if(disposable) oGame.nums_of_cards--;
 			else {
 				with(instance_create_layer(x,y,"Info",oCard)) {
@@ -77,6 +87,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 else {
 	if(isSelected) {
 		isSelected = false;
+		with(oTile) if(drawBy == other) drawBy = self;
 	}	
 }
 
