@@ -10,26 +10,3 @@ else {
 	activate = true;
 }
 
-switch(type) {
-	case "hp":
-	image_index = 1;
-	break;
-	
-	case "coin":
-	image_index = 2;
-	break;
-	
-	case "boom":
-	image_index = 3;
-	break;
-	
-	case "enemy":
-	image_index = 4;
-	break;
-	
-	default:
-	image_index = 0;
-	break;
-}
-
-

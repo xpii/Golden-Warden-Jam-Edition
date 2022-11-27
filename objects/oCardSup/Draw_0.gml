@@ -1,11 +1,14 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-draw_self();
+var _y = y;
+if(isSelected) _y = y-6;
+
+draw_sprite_ext(sCard, image_index, x, _y, 1, 1, 0, -1, image_alpha);
 
 drawSetMid();
-draw_text(x,y-12,option);
-draw_sprite(sIconsSup, type, x, y+8);
+draw_text(x,_y-12,option);
+draw_sprite(sIconsSup, type, x, _y+8);
 
 // 説明
 if(isSelected) {

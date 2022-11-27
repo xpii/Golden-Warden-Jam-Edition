@@ -7,14 +7,14 @@ function tileEffect(){
 	// 足元のタイルの効果を発動
 	with(oTile) {
 		if(num == other.current_depth) {
-			if(type == "coin") {
+			if(type == TILE_COIN) {
 				// 表示
 				with(instance_create_layer(x,y-16,"info",oLog)) {
 					text = "+1 coin"
 				}
 				other.coin++;
 			}
-			else if(type == "hp") {
+			else if(type == TILE_HP) {
 				other.hp = min(other.hp+1, other.maxHp);
 				
 				// 表示
@@ -23,21 +23,21 @@ function tileEffect(){
 					else text = "+1 HP"
 				}
 			}
-			else if(type == "boom") boom();
+			else if(type == TILE_BOMB) boom();
 			
 			// パーク選択
-			else if(type == "stair" || type == "shop") {
+			else if(type == TILE_STAIR || type == TILE_SHOP) {
 				// ターン終了
 				oGame.turn_statement = 5;
 				oGame.alarm[0] = 1;
 				
 				// パーク生成
 				oGame.alarm[1] = 2;
-				type = "";
+				type = 0;
 				return;
 			}
 			
-			type = "";
+			type = 0;
 		}
 	}
 	

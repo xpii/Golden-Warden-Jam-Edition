@@ -73,11 +73,20 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			}
 		}
 	}
-	
 }
-else isSelected = false;
+else {
+	if(isSelected) {
+		isSelected = false;
+	}	
+}
 
-if(oGame.control) image_alpha = 1;
-else image_alpha = 0.5;
+if(oGame.control) {
+	image_alpha = 1;
+	image_speed = 1;
+}
+else {
+	image_alpha = 0.5;
+	image_speed = 0;
+}
 
 

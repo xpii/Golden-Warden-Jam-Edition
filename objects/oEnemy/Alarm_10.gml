@@ -38,6 +38,7 @@ switch(weapon) {
 if(_targetNum == 0) return;
 
 // 攻撃判定を表示
+
 with(instance_create_layer(x + _targetNum*TILESIZE, y + TILESIZE/2, "Info", oCaution)) {
 	follow = other;
 }

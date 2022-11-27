@@ -35,3 +35,12 @@
 #macro PERK_ADD_SUP 8
 #macro PERK_MAXHP_UP 9
 
+// タイルアイコン系
+#macro TILE_HP 1
+#macro TILE_COIN 2
+#macro TILE_BOMB 3
+#macro TILE_ENEMY 4
+#macro TILE_SHOP 11
+
+#macro TILE_STAIR 13
+
