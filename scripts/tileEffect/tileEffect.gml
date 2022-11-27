@@ -33,8 +33,10 @@ function tileEffect(){
 				
 				// パーク生成
 				oGame.alarm[1] = 2;
+				type = "";
 				return;
 			}
+			
 			type = "";
 		}
 	}

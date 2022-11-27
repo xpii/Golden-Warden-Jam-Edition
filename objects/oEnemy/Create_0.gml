@@ -16,6 +16,9 @@ guard = false;				// ガード中かどうか
 
 target = noone;
 
+isSelected = false;
+desc = "";
+
 alarm[11] = 1;
 
 
