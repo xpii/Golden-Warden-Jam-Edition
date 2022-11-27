@@ -18,6 +18,10 @@
 #macro WEP_GRENADE 7
 
 #macro SUP_REROLL 1
+#macro SUP_NUMUP 2
+#macro SUP_NUMDOWN 3
+#macro SUP_HPGAIN 4
+#macro SUP_COINGAIN 5
 
 
 // パーク系
@@ -29,4 +33,5 @@
 #macro PERK_HP_MAX 6
 #macro PERK_ADD_EXTRA 7
 #macro PERK_ADD_SUP 8
+#macro PERK_MAXHP_UP 9
 

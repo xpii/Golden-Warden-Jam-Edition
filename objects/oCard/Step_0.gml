@@ -16,7 +16,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 					// 通り抜け出来ない場合
 					if(place_meeting(x+TILESIZE, y, oEnemy) || guard) {
 						// 先制攻撃で倒せる場合
-						if(hp <= oPlayer.atk*2 && !guard) {
+						if(hp <= oPlayer.atk+1 && !guard) {
 							with(oCursor) {
 								x = other.x;
 								y = other.y + TILESIZE/2;

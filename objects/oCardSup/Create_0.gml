@@ -5,8 +5,11 @@
 num = 0;					// カード識別
 isSelected = false;
 
-option = irandom_range(0,1);
-type = choose(SUP_REROLL);
+option = 1;
+type = irandom_range(1,5);
+
+desc = "";
 
 disposable = true;		// 使いきりかどうか
 
+alarm[11] = 1;

@@ -11,7 +11,7 @@ function attack(_weapon, _target, _dir){
 			if(_dir == RIGHT && current_depth = other.current_depth + 1 || _dir == LEFT && current_depth = other.current_depth - 1) {
 				// エフェクト
 				instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
-				damage(self, other.atk*2);
+				damage(self, other.atk+1);
 				other.weapon = 0
 				if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 				break;
@@ -72,7 +72,7 @@ function attack(_weapon, _target, _dir){
 			   _dir == LEFT && current_depth = other.current_depth - 2 ||
 			   _dir == LEFT && current_depth = other.current_depth - 1) {
 				
-				damage(self, other.atk*2);
+				damage(self, other.atk+1);
 				other.weapon = 0;
 			}
 		}
@@ -92,7 +92,7 @@ function attack(_weapon, _target, _dir){
 		// １マス先の両隣の敵にx2ダメージ
 		with(_target) {
 			if(current_depth = other.current_depth + 1 || current_depth = other.current_depth - 1) {
-				damage(self, other.atk*2);
+				damage(self, other.atk+1);
 				other.weapon = 0;
 			}
 		}
@@ -116,7 +116,7 @@ function attack(_weapon, _target, _dir){
 				if(!follow.activate) continue;
 			}
 			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {
-				damage(self, other.atk);
+				damage(self, 1);
 				other.weapon = 0
 			}
 		}

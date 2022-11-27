@@ -12,7 +12,7 @@ perks = ds_list_create();
 // 武器種保管庫
 weapons = ds_list_create();
 
-for(var _i=1; _i<8; _i++) {
+for(var _i=1; _i<10; _i++) {
 	ds_list_add(perks, _i);
 }
 

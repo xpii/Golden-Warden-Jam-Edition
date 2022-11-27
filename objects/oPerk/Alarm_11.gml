@@ -3,7 +3,7 @@
 switch(type) {
 	case PERK_ATK_UP:
 	price = 20;
-	desc = "こうげきりょく +1";
+	desc = "きんせつ こうげきりょく +1";
 	break;
 	
 	case PERK_SWORD_UPGRADE:
@@ -32,8 +32,12 @@ switch(type) {
 	desc = "カードをいっぱいになるまでゲット";
 	break;
 	case PERK_ADD_SUP:
-	price = 3;
-	desc = "サポートカードを3まいゲット";
+	price = 5;
+	desc = "サポートカードを2まいゲット";
+	break;
+	case PERK_MAXHP_UP:
+	price = 10;
+	desc = "さいだいHP +1";
 	break;
 	
 	default:

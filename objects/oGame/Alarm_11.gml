@@ -29,6 +29,7 @@ for(var _i=0; _i<nums_of_cards; _i++) {
 
 // サポートカード生成
 repeat(2) addCardSup();
+with(oCardSup) type = SUP_REROLL;
 
 // カードバック生成
 for(var _i=0; _i<3; _i++) {

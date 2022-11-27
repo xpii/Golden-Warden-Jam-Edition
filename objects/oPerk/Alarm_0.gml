@@ -38,12 +38,15 @@ switch(type) {
 	break;
 	
 	case PERK_ADD_SUP:
-	repeat(3) addCardSup();
+	repeat(2) addCardSup();
+	break;
+	
+	case PERK_MAXHP_UP:
+	oPlayer.maxHp ++;
+	oPlayer.hp ++;
 	break;
 	
 	default:
-	price = 0;
-	desc = "なにもかわない";
 	break;
 }
 

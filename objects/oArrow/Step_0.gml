@@ -11,7 +11,7 @@ if(x > room_width || x < 0) {
 }
 
 if(place_meeting(x,y,target)) {
-	damage(instance_nearest(x,y,target), follow.atk);
+	damage(instance_nearest(x,y,target), 1);
 	instance_destroy();
 }
 
