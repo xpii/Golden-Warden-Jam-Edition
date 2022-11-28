@@ -22,7 +22,7 @@ instance_create_layer(start_x, start_y, "Mobs", oPlayer);
 
 // カード生成
 for(var _i=0; _i<nums_of_cards; _i++) {
-	with(instance_create_layer(room_width/2+(_i-1)*48, 9*TILESIZE, "Info", oCard)) {
+	with(instance_create_layer(room_width/2+(_i-1)*48, CARD_START_Y, "Info", oCard)) {
 		num = 0;
 	}
 }
@@ -33,10 +33,10 @@ with(oCardSup) type = SUP_REROLL;
 
 // カードバック生成
 for(var _i=0; _i<3; _i++) {
-	instance_create_layer(room_width/2+(_i-1)*48, 9*TILESIZE, "Tile", oCardBack);
+	instance_create_layer(room_width/2+(_i-1)*48, CARD_START_Y, "Tile", oCardBack);
 }
-for(var _i=1; _i<6; _i++) {
-	instance_create_layer(room_width/2+72 + _i*36, 9*TILESIZE, "Tile", oCardBack);
-	instance_create_layer(room_width/2-72 - _i*36, 9*TILESIZE, "Tile", oCardBack);
+for(var _i=1; _i<5; _i++) {
+	instance_create_layer(room_width/2+72 + _i*36, CARD_START_Y, "Tile", oCardBack);
+	instance_create_layer(room_width/2-72 - _i*36, CARD_START_Y, "Tile", oCardBack);
 }
 

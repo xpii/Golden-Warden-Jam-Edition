@@ -1,9 +1,11 @@
 /// @description 
 
 // スプライト変更
-if(oGame.turn_statement == 1) {
-	if(remain_move > 0) sprite_index = sPlayerWalk;
-	
+if(oGame.turn_statement == 1 && sprite_index != sPlayerSlash) {
+	if(remain_move > 0) {
+		if(alarm[1] > 0) sprite_index = sPlayerSword;
+		else sprite_index = sPlayerWalk;
+	}
 	else if(weapon == 0) sprite_index = sPlayer;
 	else if(weapon == WEP_SWORD || weapon == WEP_SCYTHE || weapon == WEP_DUALSWORD) sprite_index = sPlayerSword;
 	else if(weapon == WEP_BOW || weapon == WEP_XBOW) sprite_index = sPlayerBow;

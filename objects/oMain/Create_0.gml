@@ -22,5 +22,4 @@ ds_list_add(weapons, WEP_BOW);
 ds_list_add(weapons, WEP_SHIELD);
 
 
-// 描画用
-n = 0;
+application_surface_draw_enable(false);

@@ -4,6 +4,8 @@
 num = 0;			// 自分が何マス目のタイルなのか
 activate = true;	// 処理範囲内かどうか
 
+x_goto = x;
+
 type = choose(1, 2, 3);
 
 drawMode = 0;		// 1: 白 2: 赤　3: 黒

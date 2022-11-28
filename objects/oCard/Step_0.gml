@@ -29,7 +29,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 					if(place_meeting(x+TILESIZE, y, oEnemy) || guard) {
 						
 						// 敵を倒せるなら一歩前進
-						if(hp - _damage <= 0) _walked++;
+						if(hp - _damage <= 0 && !guard) _walked++;
 					}
 					
 					// 通り抜け可能の場合、二歩前進（通り抜ける）

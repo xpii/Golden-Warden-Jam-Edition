@@ -6,8 +6,8 @@ draw_self();
 if(isSelected) {
 	drawSetMid();
 	draw_set_font(fnJP);
-	draw_text(room_width/2, TILESIZE*2, desc);
-	draw_text(room_width/2, TILESIZE*2+36, price);
+	draw_text(room_width/2, TILESIZE, desc);
+	draw_text(room_width/2, TILESIZE*2, price);
 	drawSetDefault();
 }
 

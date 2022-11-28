@@ -1,8 +1,10 @@
 // マップ生成関連
 #macro TILESIZE 32
 
-#macro GEN_START_X 7*TILESIZE
-#macro GEN_START_Y 7*TILESIZE
+#macro GEN_START_X 4.5*TILESIZE
+#macro GEN_START_Y 4*TILESIZE
+
+#macro CARD_START_Y 6*TILESIZE
 
 
 #macro RIGHT 1	// →

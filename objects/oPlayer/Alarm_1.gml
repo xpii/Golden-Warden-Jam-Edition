@@ -2,33 +2,33 @@
 
 // 攻撃
 if(target != noone) {
-	var _guard = target.guard;	// ターゲットがガード状態かどうか保存　ガード状態は通り抜け不可
-	// Slash表示
-	with(instance_create_layer(x,y-16,"info",oLog)) {
-		text = "Slash!"
-	}
-	damage(target, atk+1);
+	with(target) {
+		var _guard = guard;	// ターゲットがガード状態かどうか保存　ガード状態は通り抜け不可
 	
-	// 通り抜け不可の場合移動力を失う
-	if(place_meeting(target.x+TILESIZE, target.y, oEnemy) || _guard) {
-		remain_move = 0;
-		
-		// 攻撃で倒しきれなかった場合
-		if(target.hp > 0) {
-			// 一マス戻る
-			back();
+		// Slash表示
+		with(instance_create_layer(x,y-16,"info",oLog)) {
+			text = "Slash!"
 		}
-		// 移動後の処理
-		target = noone;
-		alarm[0] = TURNSTEP;
-		
+		// 移動力だけダメージ　与えたダメージだけ移動力を減らす
+		var _damage = min(other.remain_move, hp);
+		damage(self, _damage);
+		other.remain_move -= _damage;
+				
+		// 敵の一マス後ろに敵がいる or ガードしていたなら通り抜け不可
+		if(place_meeting(x+TILESIZE, y, oEnemy) || _guard) {
+					
+			// 敵を倒せたならそのマスに移動
+			if(hp <= 0) move();
+		}
+				
+		// 通り抜け可能の場合
+		else {
+			repeat(2) move();	// 二マス移動（敵を通り抜ける）
+		}
 	}
-	// 通り抜ける
-	else {
-		// 次の移動 or 移動後の処理
-		target = noone;
-		alarm[0] = 1;
-	}
+	// 次の移動
+	sprite_index = sPlayerSlash;
+	image_index = 0;
 }
 
 
