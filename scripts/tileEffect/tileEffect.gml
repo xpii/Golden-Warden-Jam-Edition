@@ -37,13 +37,20 @@ function tileEffect(){
 				return;
 			}
 			
+			else {
+				// 次は敵の行動処理
+				oGame.turn_statement = 3;
+				oGame.alarm[0] = 1;
+				return;
+			}
+			
 			type = 0;
 		}
 	}
 	
 	// 次は敵の行動処理
 	oGame.turn_statement = 3;
-	oGame.alarm[0] = TURNSTEP;
+	oGame.alarm[0] = TURNSTEP*2;
 	
 }
 

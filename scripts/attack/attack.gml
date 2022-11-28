@@ -139,8 +139,11 @@ function attack(_weapon, _target, _dir){
 		if(subWeapon != 0) {
 			weapon = subWeapon;
 			subWeapon = 0;
+			
+			alarm[0] = TURNSTEP;
 		}
-		alarm[0] = TURNSTEP;
+		
+		else alarm[0] = TURNSTEP*2;
 	}
 	
 	return 1;

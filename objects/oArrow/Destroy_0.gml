@@ -5,8 +5,10 @@ if(follow == oPlayer) {
 		if(subWeapon != 0) {
 			weapon = subWeapon;
 			subWeapon = 0;
+			
+			alarm[0] = TURNSTEP;
 		}
 		
-		alarm[0] = TURNSTEP;
+		else alarm[0] = TURNSTEP*2;
 	}
 }

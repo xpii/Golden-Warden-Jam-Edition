@@ -7,52 +7,50 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		isSelected = true;
 		
 		// 移動地点を予測し、カーソルで表示する
-		var _extra_walk = 0;
+		var _walked = 0;		// 歩いた歩数
 		var _other = self;		// oCardのインスタンス
 		
-		for(var _i=0; _i<walk+_extra_walk; _i++) {
+		// 残り歩数が0になるまでループ
+		var _remain_move = walk;
+		while(_remain_move > 0) {
+			
+			var _slashed = false;	// 先制攻撃フラグ
+			
+			// 先制攻撃
 			with(oEnemy) {
-				// プレイヤーの近くの一マスずつ調べる
-				if(current_depth == oPlayer.current_depth + _i+1) {
-					// 通り抜け出来ない場合
+				// プレイヤーの一マス先に敵がいる場合
+				if(current_depth == oPlayer.current_depth+_walked + 1) {
+					
+					// 与えられるダメージだけ移動力を減らす
+					var _damage = min(hp, _remain_move); 
+					_remain_move -= _damage;
+					
+					// 一マス後ろに敵がいるか、ガード中なら通り抜け不可
 					if(place_meeting(x+TILESIZE, y, oEnemy) || guard) {
-						// 先制攻撃で倒せる場合
-						if(hp <= oPlayer.atk+1 && !guard) {
-							with(oTile) {
-								if(num == other.current_depth) {
-									drawMode = 1;
-									drawBy = _other;
-								}
-							}
-						}
-						// 倒せない場合
-						else {
-							with(oTile) {
-								if(num == other.current_depth - 1) {
-									drawMode = 1;
-									drawBy = _other;	
-								}
-							}
-						}
-						// 終了
-						_extra_walk = -1;
-						_i = other.walk;
-						break;
+						
+						// 敵を倒せるなら一歩前進
+						if(hp - _damage <= 0) _walked++;
 					}
-					// 通り抜け出来る場合
-					else {
-						_extra_walk++;
-					}
+					
+					// 通り抜け可能の場合、二歩前進（通り抜ける）
+					else _walked += 2;
+
+					_slashed = true;	// 先制攻撃をした
 				}
+			}
+			
+			// 先制攻撃が無い場合、残り歩数を1減らす
+			if(!_slashed) {
+				_remain_move--;
+				_walked++;
 			}
 		}
 		
-		if(_extra_walk >= 0) {
-			with(oTile) {
-				if(num == oPlayer.current_depth + other.walk+_extra_walk) {
-					drawMode = 1;
-					drawBy = other;		
-				}
+		// 描画
+		with(oTile) {
+			if(num == oPlayer.current_depth + _walked) {
+				drawMode = 1;
+				drawBy = other;		
 			}
 		}
 			

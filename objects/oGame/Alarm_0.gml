@@ -21,7 +21,7 @@ switch(turn_statement) {
 	}
 	else {
 		turn_statement = 4;
-		alarm[0] = TURNSTEP;
+		alarm[0] = 1;
 	}
 	break;
 	
