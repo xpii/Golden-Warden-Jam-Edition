@@ -20,7 +20,7 @@ if(oGame.control) {
 
 	// パーク生成
 	for(var _i=0; _i<4; _i++) {
-		with(instance_create_layer(room_width/2 + (_i-1)*96, 4*TILESIZE, "Tile", oPerk)) {
+		with(instance_create_layer(room_width/2 + (_i-1)*96, 4.5*TILESIZE, "Tile", oPerk)) {
 			num = _i;
 			if(_i != 3) type = ds_list_find_value(oMain.perks, _i);
 			// 何も買わない固定

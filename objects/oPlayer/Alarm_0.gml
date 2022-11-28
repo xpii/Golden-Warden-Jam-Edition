@@ -35,7 +35,7 @@ else {
 		// 攻撃。不発ならタイル処理
 		if(attack(weapon, oEnemy, RIGHT) == 0) {
 			oGame.turn_statement = 2;
-			oGame.alarm[0] = 1;
+			oGame.alarm[0] = TURNSTEP;
 		}
 	}
 	

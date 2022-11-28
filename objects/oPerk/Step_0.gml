@@ -16,7 +16,7 @@ if(point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-sprite_height/2, x+s
 
 else isSelected = false;
 
-//if(oPlayer.coin < price) image_alpha = 0.5;
-//else image_alpha = 1;
+if(oPlayer.coin < price) sprite_index = sCardDark;
+else sprite_index = sCard;
 
 
