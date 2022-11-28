@@ -19,8 +19,7 @@ if(weapon == 0) {
 // 攻撃がある場合攻撃処理
 else {
 	attack(weapon, oPlayer, LEFT);
-	
-	with(oCaution) if(follow == other) instance_destroy();
+	with(oTile) if(drawBy == other) drawBy = self;
 	desc = "";
 }
 

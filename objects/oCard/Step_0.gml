@@ -100,13 +100,7 @@ else {
 	}	
 }
 
-if(oGame.control) {
-	image_alpha = 1;
-	image_speed = 1;
-}
-else {
-	image_alpha = 0.5;
-	image_speed = 0;
-}
+if(oGame.control) sprite_index = sCard;
+else sprite_index = sCardDark;
 
 

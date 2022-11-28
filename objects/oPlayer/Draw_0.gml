@@ -15,24 +15,31 @@ if(oGame.turn_statement == 1 && sprite_index != sPlayerSlash) {
 draw_self();
 
 
-if(remain_move > 0) draw_text(x,y-8*4,remain_move);
+if(remain_move > 0) {
+	drawSetMid();
+	draw_sprite(sIconsFont, 0, x-6, y-8*4);
+	draw_text(x+6,y-8*4,remain_move);
+}
 
 draw_sprite(sIcons, weapon, x, y-8*6);
 draw_sprite(sIcons, subWeapon, x, y-8*8);
 
 
-// draw_text(x,y+24,current_depth);
+// UI関連
+drawSetMid();
+draw_text(TILESIZE, 16, "HP:");
 
-draw_text(TILESIZE, TILESIZE, "HP:");
-
+// hp
 for(var _i=0; _i<hp; _i++) {
-	draw_text(2*TILESIZE+ _i*8, TILESIZE, "* ");
+	draw_sprite(sIconsFont, 1, 1.6*TILESIZE + _i*12, 16);
+}
+for(var _i=0; _i<maxHp-hp; _i++) {
+	draw_sprite(sIconsFont, 2, 1.6*TILESIZE + (_i+hp)*12, 16);
 }
 
-draw_text(TILESIZE, 2*TILESIZE, "Atk:");
-draw_text(3*TILESIZE, 2*TILESIZE, atk);
-draw_text(TILESIZE, 3*TILESIZE, "Coin:");
-draw_text(3*TILESIZE, 3*TILESIZE, coin);
+// coin
+draw_sprite(sIconsFont, 3, 24, 32);
+draw_text(24+16, 32, coin);
 
 
 if(hp <= 0) {

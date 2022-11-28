@@ -11,7 +11,7 @@
   "collisionTolerance": 0,
   "swfPrecision": 2.525,
   "bbox_left": 28,
-  "bbox_right": 47,
+  "bbox_right": 48,
   "bbox_top": 16,
   "bbox_bottom": 47,
   "HTile": false,
@@ -70,7 +70,7 @@
   ],
   "nineSlice": null,
   "parent": {
-    "name": "Sprites",
-    "path": "folders/Sprites.yy",
+    "name": "particle",
+    "path": "folders/Sprites/particle.yy",
   },
 }

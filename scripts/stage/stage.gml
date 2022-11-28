@@ -11,7 +11,7 @@ function move(){
 				x_goto -= TILESIZE;
 			}
 			with(oLog) {
-				x -= TILESIZE;
+				x_goto -= TILESIZE;
 			}
 		}
 	}
@@ -28,7 +28,7 @@ function back(){
 			x_goto += TILESIZE;
 		}
 		with(oLog) {
-			x += TILESIZE;
+			x_goto += TILESIZE;
 		}
 	}
 }
@@ -44,7 +44,7 @@ function generate(){
 	}
 	
 	// 敵の生成
-	repeat(10+oMain.level*3) {
+	repeat(10+oMain.level*2) {
 		var _num = irandom_range(4, oGame.max_depth-1);
 		with(oTile) {
 			if(num == _num) type = TILE_ENEMY;

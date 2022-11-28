@@ -1,4 +1,0 @@
-/// @description
-
-follow = self;
-

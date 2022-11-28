@@ -10,7 +10,9 @@ function attack(_weapon, _target, _dir){
 		with(_target) {
 			if(_dir == RIGHT && current_depth = other.current_depth + 1 || _dir == LEFT && current_depth = other.current_depth - 1) {
 				// エフェクト
-				instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
+				with(instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash)) {
+					if(_dir = LEFT) image_xscale = -1;
+				}
 				damage(self, other.atk+1);
 				other.weapon = 0
 				
@@ -82,7 +84,9 @@ function attack(_weapon, _target, _dir){
 		// 発動した場合の処理
 		else {
 			// エフェクト
-			instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
+			with(instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash)){
+				if(_dir = LEFT) image_xscale = -1;
+			}
 			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 		}
 	}
@@ -103,7 +107,9 @@ function attack(_weapon, _target, _dir){
 		else {
 			// エフェクト
 			instance_create_layer(other.x+TILESIZE, other.y, "Mobs", oSlash);
-			instance_create_layer(other.x-TILESIZE, other.y, "Mobs", oSlash);
+			with(instance_create_layer(other.x-TILESIZE, other.y, "Mobs", oSlash)) {
+				image_xscale = -1;
+			}
 			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 		}
 	}

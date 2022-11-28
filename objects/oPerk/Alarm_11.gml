@@ -8,15 +8,15 @@ switch(type) {
 	
 	case PERK_SWORD_UPGRADE:
 	price = 10;
-	desc = "ソードをロングソードにアップグレード";
+	desc = "ソードをサイスにアップグレード\nまえ2マスに 2ダメージ";
 	break;
 	case PERK_SWORD_DUAL:
 	price = 10;
-	desc = "ソードをデュアルソードにアップグレード";
+	desc = "ソードをデュアルソードにアップグレード\nぜんご1マスに 2ダメージ";
 	break;
 	case PERK_BOW_UPGRADE:
 	price = 15;
-	desc = "ボウをクロスボウにアップグレード";
+	desc = "ボウをクロスボウにアップグレード\nまえのてきすべてに 1ダメージ";
 	break;
 	case PERK_BOMB_ADD:
 	price = 10;
@@ -29,7 +29,7 @@ switch(type) {
 	break;
 	case PERK_ADD_EXTRA:
 	price = 3;
-	desc = "カードをいっぱいになるまでゲット";
+	desc = "アクションカードを4まいゲット";
 	break;
 	case PERK_ADD_SUP:
 	price = 5;

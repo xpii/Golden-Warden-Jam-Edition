@@ -4,7 +4,7 @@
 var _y = y;
 if(isSelected) _y = y-6;
 
-draw_sprite_ext(sCard, image_index, x, _y, 1, 1, 0, -1, image_alpha);
+draw_sprite_ext(sprite_index, image_index, x, _y, 1, 1, 0, -1, image_alpha);
 
 drawSetMid();
 draw_text(x,_y-12,option);
