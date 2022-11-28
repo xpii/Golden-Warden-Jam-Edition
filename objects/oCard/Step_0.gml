@@ -55,39 +55,50 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 				}
 			}
 		}
+			
+		
+		// oPlayerのスプライト変更
+		if(weapon == 0) oPlayer.sprite_index = sPlayer;
+		else if(weapon == WEP_SWORD || weapon == WEP_SCYTHE || weapon == WEP_DUALSWORD) oPlayer.sprite_index = sPlayerSword;
+		else if(weapon == WEP_BOW || weapon == WEP_XBOW) oPlayer.sprite_index = sPlayerBow;
+		else if(weapon == WEP_SHIELD) oPlayer.sprite_index = sPlayerShield;
 	}
 	
 	// クリック時
-	if(mouse_check_button_pressed(mb_left)) {
-		if(oGame.control) {
-			// コントロール停止
-			oGame.control = false;
-			oGame.turn_statement = 1;
-			oGame.alarm[0] = 1;
+	if(mouse_check_button_pressed(mb_left) && oGame.control) {
+		// コントロール停止
+		oGame.control = false;
+		oGame.turn_statement = 1;
+		oGame.alarm[0] = 1;
 		
-			with(oPlayer) {
-				// プレイヤーに情報を格納
-				remain_move = other.walk;
-				weapon = other.weapon;
-			}
+		with(oPlayer) {
+			// プレイヤーに情報を格納
+			remain_move = other.walk;
+			weapon = other.weapon;
+		}
 		
-			instance_destroy();
-			with(oTile) if(drawBy == other) drawBy = self;
+		instance_destroy();
+		with(oTile) if(drawBy == other) drawBy = self;
 			
-			// 使い捨ての場合、そうでない場合
-			if(disposable) oGame.nums_of_cards--;
-			else {
-				with(instance_create_layer(x,y,"Info",oCard)) {
-					num = other.num;
-				}
+		// 使い捨ての場合、そうでない場合
+		if(disposable) oGame.nums_of_cards--;
+		else {
+			with(instance_create_layer(x,y,"Info",oCard)) {
+				num = other.num;
 			}
 		}
+		oPlayer.sprite_index = sPlayer;
 	}
 }
+
+// マウスカーソルが乗っていない場合
 else {
+	// マウスカーソルが降りた瞬間の処理
 	if(isSelected) {
 		isSelected = false;
 		with(oTile) if(drawBy == other) drawBy = self;
+		
+		oPlayer.sprite_index = sPlayer;
 	}	
 }
 

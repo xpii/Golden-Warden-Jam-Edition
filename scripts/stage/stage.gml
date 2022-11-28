@@ -44,7 +44,7 @@ function generate(){
 	}
 	
 	// 敵の生成
-	repeat(10+oMain.level) {
+	repeat(10+oMain.level*3) {
 		var _num = irandom_range(4, oGame.max_depth-1);
 		with(oTile) {
 			if(num == _num) type = TILE_ENEMY;

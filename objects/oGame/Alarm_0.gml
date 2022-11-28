@@ -46,6 +46,7 @@ switch(turn_statement) {
 			subWeapon = weapon;
 			weapon = 0;
 		}
+		sprite_index = sPlayer;
 	}
 	turn_statement = 0;
 	combo = 0;

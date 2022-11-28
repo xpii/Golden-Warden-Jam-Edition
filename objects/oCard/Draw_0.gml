@@ -13,7 +13,8 @@ draw_sprite(sIcons, weapon, x, _y+8);
 
 // 説明
 if(isSelected) {
-	draw_sprite(sIcons, weapon, oPlayer.x, oPlayer.y-8*6);
+	draw_text(oPlayer.x, oPlayer.y-8*4, walk);				// プレイヤーの頭上に歩数
+	draw_sprite(sIcons, weapon, oPlayer.x, oPlayer.y-8*6);	// プレイヤーの頭上に武器アイコン
 	
 	draw_set_font(fnJP);
 	draw_text(room_width/2 ,room_height-32,desc);

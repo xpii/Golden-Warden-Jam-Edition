@@ -13,7 +13,7 @@ function attack(_weapon, _target, _dir){
 				instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash);
 				damage(self, other.atk+1);
 				other.weapon = 0
-				if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
+				
 				break;
 			}
 		}
@@ -125,12 +125,22 @@ function attack(_weapon, _target, _dir){
 		// 発動した場合の処理
 		else {
 			// エフェクト
-
+			
 			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 		}
 	}
 	else {
 		return 0;
+	}
+	
+	// 連続攻撃の処理
+	if(_weapon != WEP_BOW && object_index == oPlayer) {
+		// 攻撃が残っていれば次の攻撃準備
+		if(subWeapon != 0) {
+			weapon = subWeapon;
+			subWeapon = 0;
+		}
+		alarm[0] = TURNSTEP;
 	}
 	
 	return 1;

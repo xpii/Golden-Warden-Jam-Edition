@@ -40,7 +40,7 @@
 #macro TILE_COIN 2
 #macro TILE_BOMB 3
 #macro TILE_ENEMY 4
-#macro TILE_SHOP 11
+#macro TILE_SHOP 5
 
-#macro TILE_STAIR 13
+#macro TILE_STAIR 6
 
