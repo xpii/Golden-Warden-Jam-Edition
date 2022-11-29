@@ -36,6 +36,9 @@ if(level == 0) {
 		else if(menu == 3) {
 			if(lang == LANG.ENG) lang = LANG.JP;
 			else if(lang == LANG.JP) lang = LANG.ENG;
+			
+			with(oHint) alarm[11] = 1;
+			with(oMessage) alarm[11] = 1;
 		}
 	}
 	

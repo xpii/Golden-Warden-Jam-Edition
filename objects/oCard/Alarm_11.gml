@@ -2,7 +2,7 @@
 
 switch(weapon) {
 	case WEP_SWORD:
-	desc = "まえ1マスに 2ダメージ";
+	desc = string_insert(oPlayer.atk+1, "まえ1マスに ダメージ", 8);
 	break;
 	
 	case WEP_BOW:
@@ -14,11 +14,11 @@ switch(weapon) {
 	break;
 	
 	case WEP_SCYTHE:
-	desc = "まえ2マスに 2ダメージ";
+	desc = string_insert(oPlayer.atk+1, "まえ2マスに ダメージ", 8);
 	break;
 	
 	case WEP_DUALSWORD:
-	desc = "ぜんご1マスに 2ダメージ";
+	desc = string_insert(oPlayer.atk+1, "ぜんご1マスに ダメージ", 9);
 	break;
 	
 	case WEP_XBOW:
