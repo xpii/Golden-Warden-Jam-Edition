@@ -1,10 +1,10 @@
 /// @description 行動
-if(!follow.activate) {
-	// 状態変化処理へ
-	oGame.turn_statement = 4;
-	oGame.alarm[0] = TURNSTEP;
-	return;
-}
+
+// 状態変化処理
+oGame.turn_statement = 4;
+oGame.alarm[0] = TURNSTEP;
+if(!follow.activate) return;
+
 
 // 攻撃をセット
 if(weapon == 0) {
@@ -22,7 +22,3 @@ else {
 	with(oTile) if(drawBy == other) drawBy = self;
 	desc = "";
 }
-
-// 状態変化処理へ
-oGame.turn_statement = 4;
-oGame.alarm[0] = TURNSTEP;

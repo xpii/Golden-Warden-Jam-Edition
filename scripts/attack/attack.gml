@@ -1,4 +1,4 @@
-/// @desc attack(weapon);	攻撃処理	oPlayer	oEnemy
+/// @desc attack(weapon);	攻撃処理	oPlayer	pEnemy
 /// @arg weapon
 /// @arg target
 /// @arg dir
@@ -27,7 +27,7 @@ function attack(_weapon, _target, _dir){
 	else if(_weapon == WEP_BOW) {
 		// 前方の敵に1ダメージ
 		with(_target) {
-			if(_target.object_index == oEnemy) {
+			if(_target.object_index == pEnemy) {
 				if(!follow.activate) continue;
 			}
 			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {
@@ -36,13 +36,13 @@ function attack(_weapon, _target, _dir){
 					with(instance_create_layer(other.x, other.y, "Mobs", oArrow)) {
 						dir = RIGHT;
 						follow = oPlayer;
-						target = oEnemy;
+						target = pEnemy;
 					}
 				}
 				else if(_dir == LEFT) {
 					with(instance_create_layer(other.x, other.y, "Mobs", oArrow)) {
 						dir = LEFT;
-						follow = oEnemy;
+						follow = pEnemy;
 						target = oPlayer;
 					}
 				}
@@ -118,7 +118,7 @@ function attack(_weapon, _target, _dir){
 	else if(_weapon == WEP_XBOW) {
 		// 前方の敵に1ダメージ
 		with(_target) {
-			if(_target.object_index == oEnemy) {
+			if(_target.object_index == pEnemy) {
 				if(!follow.activate) continue;
 			}
 			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {
@@ -156,7 +156,7 @@ function attack(_weapon, _target, _dir){
 }
 
 ///@desc damage(target, amount)	対象にダメージを与える
-///@arg target		対象 oPlayer or oEnemy
+///@arg target		対象 oPlayer or pEnemy
 ///@arg amount		ダメージ量
 function damage(_target, _amount) {
 	

@@ -5,8 +5,8 @@ if(remain_move > 0) {
 	// 先制攻撃
 	var _slashed = false;
 	
-	if(instance_exists(oEnemy)) {
-		with(oEnemy) {
+	if(instance_exists(pEnemy)) {
+		with(pEnemy) {
 			// 一マス先に敵がいる場合
 			if(other.current_depth + 1 == current_depth) {
 				other.target = self;
@@ -33,7 +33,7 @@ else {
 	if(weapon != 0) {
 		
 		// 攻撃。不発ならタイル処理
-		if(attack(weapon, oEnemy, RIGHT) == 0) {
+		if(attack(weapon, pEnemy, RIGHT) == 0) {
 			oGame.turn_statement = 2;
 			oGame.alarm[0] = TURNSTEP;
 		}

@@ -11,3 +11,10 @@ if(type == TILE_ENEMY) {
 		follow = other;
 	}
 }
+
+// 宝箱マスなら箱を配置
+if(type == TILE_BOX) {
+	with(instance_create_layer(x,y,"Mobs",oBox)) {
+		follow = other;
+	}
+}

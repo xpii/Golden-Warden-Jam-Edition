@@ -51,10 +51,16 @@ function generate(){
 		}
 	}
 	
-	// ショップの生成（ステージの真ん中あたりに一つ）
-	var _num = irandom_range(oGame.max_depth/2-5, oGame.max_depth/2+5);
+	// ショップの生成（ステージの中盤あたりに一つ）
+	var _num = irandom_range(oGame.max_depth/2, oGame.max_depth/2+10);
 	with(oTile) {
 		if(num == _num) type = TILE_SHOP;
+	}
+	
+	// 宝箱の生成 (ステージ序盤に一つ)
+	var _num = irandom_range(oGame.max_depth/3-3, oGame.max_depth/3+3);
+	with(oTile) {
+		if(num == _num) type = TILE_BOX;
 	}
 	
 	// 初期化

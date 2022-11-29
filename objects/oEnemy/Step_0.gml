@@ -1,22 +1,15 @@
 /// @description 
 
-if(!instance_exists(follow)) instance_destroy();
+event_inherited();
 
-else {
-	x = follow.x;
-	y = follow.y;
-	image_alpha = follow.image_alpha;
-	current_depth = follow.num;
-}
-
-// 倒された場合コンボ数だけ追加カードを得る
+// 倒された場合コンボ数のコイン、アクションカード、コンボ数-1のサポートカードを得る 
 if(hp <= 0) {
 	instance_destroy();
 	oGame.combo++;
 	
 	// コイン
 	repeat(oGame.combo) {
-		oPlayer.coin++;
+		instance_create_layer(x,y,"Mobs",oCoin);
 	}
 	// アクションカード
 	repeat(oGame.combo) {
@@ -26,20 +19,4 @@ if(hp <= 0) {
 	repeat(oGame.combo-1) {
 		addCardSup();
 	}
-}
-
-
-// マウスカーソルが乗っている時
-if(point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-sprite_height/2, x+sprite_width/2, y+sprite_height/2)) {
-	// マウスカーソルが乗った瞬間のみの処理
-	if(!isSelected) {
-		isSelected = true;
-		alarm[10] = 1;
-	}
-}
-
-else {
-	isSelected = false;
-	with(oTile) if(drawBy == other) drawBy = self;
-	desc = "";
 }

@@ -1,5 +1,9 @@
 /// @description
 
+// for browser build
+gpu_set_texfilter(false);
+
+
 x = room_width / 2;
 y = room_height / 2;
 
@@ -22,4 +26,4 @@ ds_list_add(weapons, WEP_BOW);
 ds_list_add(weapons, WEP_SHIELD);
 
 
-application_surface_draw_enable(false);
+//application_surface_draw_enable(false);

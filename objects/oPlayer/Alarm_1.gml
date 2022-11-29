@@ -15,7 +15,7 @@ if(target != noone) {
 		other.remain_move -= _damage;
 				
 		// 敵の一マス後ろに敵がいる or ガードしていたなら通り抜け不可
-		if(place_meeting(x+TILESIZE, y, oEnemy) || _guard) {
+		if(place_meeting(x+TILESIZE, y, pEnemy) || _guard) {
 					
 			// 敵を倒せたならそのマスに移動
 			if(hp <= 0) move();

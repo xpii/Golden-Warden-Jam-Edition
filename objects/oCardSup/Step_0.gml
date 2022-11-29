@@ -26,7 +26,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			oPlayer.hp = min(oPlayer.maxHp, oPlayer.hp + option);
 		}
 		else if(type == SUP_COINGAIN) {
-			oPlayer.coin += option;
+			repeat(option) instance_create_layer(x,y,"Mobs",oCoin);
 		}
 		
 		instance_destroy();

@@ -17,7 +17,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			var _slashed = false;	// 先制攻撃フラグ
 			
 			// 先制攻撃
-			with(oEnemy) {
+			with(pEnemy) {
 				// プレイヤーの一マス先に敵がいる場合
 				if(current_depth == oPlayer.current_depth+_walked + 1) {
 					
@@ -26,7 +26,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 					_remain_move -= _damage;
 					
 					// 一マス後ろに敵がいるか、ガード中なら通り抜け不可
-					if(place_meeting(x+TILESIZE, y, oEnemy) || guard) {
+					if(place_meeting(x+TILESIZE, y, pEnemy) || guard) {
 						
 						// 敵を倒せるなら一歩前進
 						if(hp - _damage <= 0 && !guard) _walked++;

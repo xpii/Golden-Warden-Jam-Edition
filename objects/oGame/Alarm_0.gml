@@ -14,8 +14,8 @@ switch(turn_statement) {
 	
 	// 敵の移動、攻撃
 	case 3:
-	if(instance_exists(oEnemy)) {
-		with(oEnemy) {
+	if(instance_exists(pEnemy)) {
+		with(pEnemy) {
 			alarm[0] = 1;	
 		}
 	}

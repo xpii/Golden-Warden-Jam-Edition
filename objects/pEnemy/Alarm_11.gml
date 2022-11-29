@@ -1,0 +1,1 @@
+/// @description ステータス設定

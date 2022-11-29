@@ -12,7 +12,7 @@ function tileEffect(){
 				with(instance_create_layer(x,y-16,"info",oLog)) {
 					text = "+1 coin"
 				}
-				other.coin++;
+				instance_create_layer(other.x,other.y,"Mobs",oCoin);
 			}
 			else if(type == TILE_HP) {
 				other.hp = min(other.hp+1, other.maxHp);
@@ -64,7 +64,7 @@ function boom() {
 		if(num == other.num + 1 || num == other.num - 1) instance_create_layer(x, y, "Mobs", oBoom);
 	}
 	// ダメージ
-	with(oEnemy) {
+	with(pEnemy) {
 		if(follow.num == other.num + 1 || follow.num == other.num - 1) damage(self, 2);
 	}
 	

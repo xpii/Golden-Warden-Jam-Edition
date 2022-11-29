@@ -45,4 +45,5 @@
 #macro TILE_SHOP 5
 
 #macro TILE_STAIR 6
+#macro TILE_BOX 7
 
