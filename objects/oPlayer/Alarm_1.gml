@@ -15,7 +15,7 @@ if(target != noone) {
 		other.remain_move -= _damage;
 				
 		// 敵の一マス後ろに敵がいる or ガードしていたなら通り抜け不可
-		if(place_meeting(x+TILESIZE, y, pEnemy) || _guard) {
+		if(place_meeting(x+TILESIZE, y, pEnemy) || _guard || current_depth == oGame.max_depth) {
 					
 			// 敵を倒せたならそのマスに移動
 			if(hp <= 0) move();
@@ -29,6 +29,8 @@ if(target != noone) {
 	// 次の移動
 	sprite_index = sPlayerSlash;
 	image_index = 0;
+	
+	oMain.tutorialFlag = 1;
 }
 
 

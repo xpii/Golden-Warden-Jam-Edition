@@ -2,7 +2,8 @@
 
 // エリア最後のマスは階段
 if(num >= oGame.max_depth) {
-	type = TILE_STAIR;
+	if(oMain.level < 4) type = TILE_STAIR;
+	else type = TILE_BOX;
 }
 
 // 敵マスなら敵を配置

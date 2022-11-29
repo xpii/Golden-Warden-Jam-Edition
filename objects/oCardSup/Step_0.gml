@@ -29,6 +29,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 			repeat(option) instance_create_layer(x,y,"Mobs",oCoin);
 		}
 		
+		showHint(2);
 		instance_destroy();
 		oGame.nums_of_supCards--;
 	}

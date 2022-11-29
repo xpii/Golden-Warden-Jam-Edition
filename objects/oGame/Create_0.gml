@@ -20,4 +20,3 @@ start_y = 0;
 
 alarm[11] = 1;
 
-instance_create_layer(4.5*TILESIZE, 2*TILESIZE, "Info", oMessage);

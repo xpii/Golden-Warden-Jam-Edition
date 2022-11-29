@@ -39,28 +39,30 @@ function generate(){
 		// 新しいタイルの生成
 		with(instance_create_layer(GEN_START_X+TILESIZE*_i, GEN_START_Y, "Tile", oTile)) {
 			num = _i
-			if(num < 4) type = 0;
+			if(num < 4 || num > 40) type = 0;
 		}
 	}
 	
 	// 敵の生成
 	repeat(10+oMain.level*2) {
-		var _num = irandom_range(4, oGame.max_depth-1);
+		var _num = irandom_range(4, 39);
 		with(oTile) {
 			if(num == _num) type = TILE_ENEMY;
 		}
 	}
 	
-	// ショップの生成（ステージの中盤あたりに一つ）
-	var _num = irandom_range(oGame.max_depth/2, oGame.max_depth/2+10);
-	with(oTile) {
-		if(num == _num) type = TILE_SHOP;
-	}
+	if(oMain.level > 4) {
+		// ショップの生成（ステージの中盤あたりに一つ）
+		var _num = irandom_range(20, 30);
+		with(oTile) {
+			if(num == _num) type = TILE_SHOP;
+		}
 	
-	// 宝箱の生成 (ステージ序盤に一つ)
-	var _num = irandom_range(oGame.max_depth/3-3, oGame.max_depth/3+3);
-	with(oTile) {
-		if(num == _num) type = TILE_BOX;
+		// 宝箱の生成 (ステージ序盤に一つ)
+		var _num = irandom_range(11, 17);
+		with(oTile) {
+			if(num == _num) type = TILE_BOX;
+		}
 	}
 	
 	// 初期化

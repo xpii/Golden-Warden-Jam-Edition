@@ -26,7 +26,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 					_remain_move -= _damage;
 					
 					// 一マス後ろに敵がいるか、ガード中なら通り抜け不可
-					if(place_meeting(x+TILESIZE, y, pEnemy) || guard) {
+					if(place_meeting(x+TILESIZE, y, pEnemy) || guard || current_depth == oGame.max_depth) {
 						
 						// 敵を倒せるなら一歩前進
 						if(hp - _damage <= 0 && !guard) _walked++;
@@ -48,7 +48,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		
 		// 描画
 		with(oTile) {
-			if(num == oPlayer.current_depth + _walked) {
+			if(num == min(oGame.max_depth, oPlayer.current_depth + _walked)) {
 				drawMode = 1;
 				drawBy = other;		
 			}
@@ -79,7 +79,10 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		with(oTile) if(drawBy == other) drawBy = self;
 			
 		// 使い捨ての場合、そうでない場合
-		if(disposable) oGame.nums_of_cards--;
+		if(disposable) {
+			oGame.nums_of_cards--;
+			showHint(1);
+		}
 		else {
 			with(instance_create_layer(x,y,"Info",oCard)) {
 				num = other.num;

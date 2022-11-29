@@ -27,7 +27,7 @@ function attack(_weapon, _target, _dir){
 	else if(_weapon == WEP_BOW) {
 		// 前方の敵に1ダメージ
 		with(_target) {
-			if(_target.object_index == pEnemy) {
+			if(_target == pEnemy) {
 				if(!follow.activate) continue;
 			}
 			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {
@@ -118,7 +118,7 @@ function attack(_weapon, _target, _dir){
 	else if(_weapon == WEP_XBOW) {
 		// 前方の敵に1ダメージ
 		with(_target) {
-			if(_target.object_index == pEnemy) {
+			if(_target == pEnemy) {
 				if(!follow.activate) continue;
 			}
 			if(_dir == RIGHT && current_depth > other.current_depth || _dir == LEFT && current_depth < other.current_depth) {

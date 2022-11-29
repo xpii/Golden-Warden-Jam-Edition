@@ -40,3 +40,7 @@ for(var _i=1; _i<5; _i++) {
 	instance_create_layer(room_width/2-72 - _i*36, CARD_START_Y, "Tile", oCardBack);
 }
 
+
+with(oMessage) {
+	if(type == 0) enable = true;
+}

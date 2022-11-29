@@ -17,15 +17,9 @@ if(enable) {
 
 	if(w == w_max) {
 		draw_set_font(fnJP);
-		draw_text(x,y,text[page-1]);
-		// nextボタン
-		draw_sprite(sprite_index, image_index, _x3, _y3);
-		// OK
-		drawSetMid();
-		draw_text(_x3+sprite_width/2, _y3+sprite_height/2, "OK");
+		draw_text(x,y,text);
+
 	
-		var _page = string_insert(page, string_insert(maxPage, "/", 2), 0);
-		draw_text(x + w_max/2, y+h, _page);
 	
 		drawSetDefault();
 	}

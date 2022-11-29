@@ -8,8 +8,10 @@ x_goto = x;
 
 type = choose(1, 2, 3);
 
+isSelected = false;
+desc = "";
+
 drawMode = 0;		// 1: 白 2: 赤　3: 黒
 drawBy = self;		// どのオブジェクトから描画変更を受けているか
 
 alarm[11] = 1;
-alarm[10] = 1;

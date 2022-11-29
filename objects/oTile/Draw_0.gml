@@ -8,3 +8,9 @@ if(activate) draw_sprite_ext(sIconsTile, type, x, y, 1, 1, 0, -1, image_alpha);
 if(drawMode == 1 && sprite_index != sTileFlash) sprite_index = sTileFlash;
 else if(drawMode == 2 && sprite_index != sTileDanger) sprite_index = sTileDanger;
 
+
+drawSetMid();
+draw_set_font(fnJP);
+draw_text(room_width/2 ,room_height-32,desc);
+
+drawSetDefault();

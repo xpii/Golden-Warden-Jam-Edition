@@ -1,7 +1,9 @@
 /// @description カーソルを合わせた時の情報表示
 
-if(weapon == 0) return;
-
+if(weapon == 0 && follow.activate) {
+	desc = "スケルトン";
+	return;
+}
 var _targetNum = 0;
 
 switch(weapon) {

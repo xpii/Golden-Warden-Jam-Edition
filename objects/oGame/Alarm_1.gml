@@ -62,7 +62,15 @@ else {
 
 		// ステージ生成
 		oMain.level++;
+		if(oMain.level == 4) max_depth = 48;	// 最終面
 		generate();
+		
+		// スラッシュのチュートリアル
+		if(oMain.level == 2) {
+			with(oMessage) {
+				if(type == 1) enable = true;
+			}
+		}
 	}
 	
 	// 途中なら再表示

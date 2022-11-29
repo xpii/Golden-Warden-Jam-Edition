@@ -43,11 +43,13 @@ switch(turn_statement) {
 		if(weapon != 0) {
 			subWeapon = weapon;
 			weapon = 0;
+			showHint(3);
 		}
 		sprite_index = sPlayer;
 	}
 	turn_statement = 0;
 	combo = 0;
 	control = true;
+	
 	break;
 }
