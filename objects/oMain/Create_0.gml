@@ -3,7 +3,6 @@
 // for browser build
 gpu_set_texfilter(false);
 
-
 x = room_width / 2;
 y = room_height / 2;
 
@@ -29,5 +28,21 @@ ds_list_add(weapons, WEP_SHIELD);
 tutorialFlag = 0;
 
 
+// メニュー系
+menu = 0;
 
+// 言語設定
+enum LANG {
+	ENG = 0,
+	JP = 1
+}
+lang = LANG.ENG;	// 0:ENG 1:JPN
+
+// 音量設定
+// audio_play_sound(snBGM,1,true);
+volume = 2;
+audio_group_set_gain(audiogroup_default,volume/3,1);
+
+
+flash = 0;
 //application_surface_draw_enable(false);

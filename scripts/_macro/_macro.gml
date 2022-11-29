@@ -47,3 +47,6 @@
 #macro TILE_STAIR 6
 #macro TILE_BOX 7
 
+// クレジット
+#macro VERSION "ver 1.0.0"
+#macro COPYRIGHT "(c)2022 xpii"

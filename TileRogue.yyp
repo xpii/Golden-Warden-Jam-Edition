@@ -22,6 +22,7 @@
     {"id":{"name":"fnEngBig","path":"fonts/fnEngBig/fnEngBig.yy",},"order":1,},
     {"id":{"name":"sPlayerShield","path":"sprites/sPlayerShield/sPlayerShield.yy",},"order":3,},
     {"id":{"name":"pEnemy","path":"objects/pEnemy/pEnemy.yy",},"order":15,},
+    {"id":{"name":"sVol","path":"sprites/sVol/sVol.yy",},"order":5,},
     {"id":{"name":"sPlayerBow","path":"sprites/sPlayerBow/sPlayerBow.yy",},"order":2,},
     {"id":{"name":"oTest","path":"objects/oTest/oTest.yy",},"order":0,},
     {"id":{"name":"sTileFlash","path":"sprites/sTileFlash/sTileFlash.yy",},"order":15,},
