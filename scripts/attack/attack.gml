@@ -88,7 +88,8 @@ function attack(_weapon, _target, _dir){
 		else {
 			// エフェクト
 			with(instance_create_layer(other.x+TILESIZE*_dir, other.y, "Mobs", oSlash)){
-				if(_dir = LEFT) image_xscale = -1;
+				if(_dir = LEFT) image_xscale = -2;
+				else image_xscale = 2;
 			}
 			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
 		}

@@ -43,7 +43,7 @@ lang = LANG.ENG;	// 0:ENG 1:JPN
 
 // 音量設定
 audio_play_sound(snBGM,1,true);
-volume = 1;
+volume = 2;
 audio_group_set_gain(audiogroup_default,volume/3,1);
 
 

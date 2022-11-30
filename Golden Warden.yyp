@@ -1,7 +1,7 @@
 {
   "resourceType": "GMProject",
   "resourceVersion": "1.6",
-  "name": "TileRogue",
+  "name": "Golden Warden",
   "resources": [
     {"id":{"name":"sPlayerWalk","path":"sprites/sPlayerWalk/sPlayerWalk.yy",},"order":4,},
     {"id":{"name":"sTutorialArrow","path":"sprites/sTutorialArrow/sTutorialArrow.yy",},"order":25,},
@@ -77,6 +77,7 @@
     {"id":{"name":"rStage","path":"rooms/rStage/rStage.yy",},"order":3,},
     {"id":{"name":"oBoom","path":"objects/oBoom/oBoom.yy",},"order":0,},
     {"id":{"name":"drawSet","path":"scripts/drawSet/drawSet.yy",},"order":4,},
+    {"id":{"name":"sSlashWide","path":"sprites/sSlashWide/sSlashWide.yy",},"order":7,},
     {"id":{"name":"_macro","path":"scripts/_macro/_macro.yy",},"order":5,},
     {"id":{"name":"sh2Bit","path":"shaders/sh2Bit/sh2Bit.yy",},"order":1,},
     {"id":{"name":"oCardSup","path":"objects/oCardSup/oCardSup.yy",},"order":11,},
