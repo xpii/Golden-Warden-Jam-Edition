@@ -9,6 +9,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 	
 	// クリック時
 	if(mouse_check_button_pressed(mb_left)) {
+		audio_play_sound(snClick, 1, false);
 		if(type == SUP_REROLL) with(oCard) alarm[0] = 1;	// リロール
 		else if(type == SUP_NUMUP) {
 			with(oCard) {

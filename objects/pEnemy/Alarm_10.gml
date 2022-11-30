@@ -1,38 +1,45 @@
 /// @description カーソルを合わせた時の情報表示
 
 if(weapon == 0 && follow.activate) {
-	desc = "スケルトン";
+	if(oMain.lang == LANG.JP) desc = "スケルトン";
+	else desc = "Skeleton";
 	return;
 }
 var _targetNum = 0;
 
 switch(weapon) {
 	case WEP_SWORD:
-	desc = "まえ1マスに 2ダメージ";
+	if(oMain.lang == LANG.JP) desc = "まえ1マスに 2ダメージ";
+	else desc = "2 damage to the front one tile";
 	_targetNum = -1;
 	break;
 	
 	case WEP_BOW:
-	desc = "まえに 1ダメージのやをはなつ";
+	if(oMain.lang == LANG.JP) desc = "まえに 1ダメージのやをはなつ";
+	else desc = "Shoots 1 damage arrow in front of you.";
 	_targetNum = min(0, oPlayer.current_depth - current_depth);
 	break;
 	
 	case WEP_SHIELD:
-	desc = "ダメージを 1かいふせぐ たてをはる";
+	if(oMain.lang == LANG.JP) desc = "ダメージを 1かいふせぐ たてをはる";
+	else desc = "Use a shield to prevent damage once";
 	break;
 	
 	case WEP_SCYTHE:
-	desc = "まえ2マスに 2ダメージ";
+	if(oMain.lang == LANG.JP) desc = "まえ2マスに 2ダメージ";
+	else desc = "2 damage to the front two tile";
 	_targetNum = -2;
 	break;
 	
 	case WEP_DUALSWORD:
-	desc = "ぜんご1マスに 2ダメージ";
+	if(oMain.lang == LANG.JP) desc = "ぜんご1マスに 2ダメージ";
+	else desc = "2 damage to one tile in front and behind";
 	_targetNum = 1;
 	break;
 	
 	case WEP_XBOW:
-	desc = "まえのてきすべてに 1ダメージ";
+	if(oMain.lang == LANG.JP) desc = "まえのてきすべてに 1ダメージ";
+	else desc = "1 damage to all enemies in front of you";
 	_targetNum = min(0, oPlayer.current_depth - current_depth);
 	break;
 }

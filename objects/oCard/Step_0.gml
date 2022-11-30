@@ -12,7 +12,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 		
 		// 残り歩数が0になるまでループ
 		var _remain_move = walk;
-		while(_remain_move > 0) {
+		while(_remain_move >= 1) {
 			
 			var _slashed = false;	// 先制攻撃フラグ
 			
@@ -36,13 +36,14 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 					else _walked += 2;
 
 					_slashed = true;	// 先制攻撃をした
+					break;
 				}
 			}
 			
 			// 先制攻撃が無い場合、残り歩数を1減らす
 			if(!_slashed) {
-				_remain_move--;
 				_walked++;
+				_remain_move--;
 			}
 		}
 		
@@ -64,6 +65,7 @@ if(oGame.control && point_in_rectangle(mouse_x, mouse_y, x-sprite_width/2, y-spr
 	
 	// クリック時
 	if(mouse_check_button_pressed(mb_left) && oGame.control) {
+		audio_play_sound(snClick, 1, false);
 		// コントロール停止
 		oGame.control = false;
 		oGame.turn_statement = 1;

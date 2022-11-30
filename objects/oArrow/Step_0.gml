@@ -11,6 +11,7 @@ if(x > room_width || x < 0) {
 }
 
 if(place_meeting(x,y,target)) {
+	audio_play_sound(snAtkBowHit,1,false);
 	damage(instance_nearest(x,y,target), 1);
 	instance_destroy();
 }

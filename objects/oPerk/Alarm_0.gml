@@ -3,6 +3,9 @@
 switch(type) {
 	case PERK_ATK_UP:
 	oPlayer.atk++;
+	with(oCard) {
+		alarm[11] = 1;
+	}
 	break;
 	
 	case PERK_SWORD_UPGRADE:
@@ -43,6 +46,7 @@ switch(type) {
 	
 	case PERK_HP_MAX:
 	oPlayer.hp = oPlayer.maxHp;
+	audio_play_sound(snHeal,1,false);
 	break;
 	
 	case PERK_ADD_EXTRA:
@@ -56,6 +60,7 @@ switch(type) {
 	case PERK_MAXHP_UP:
 	oPlayer.maxHp ++;
 	oPlayer.hp ++;
+	audio_play_sound(snHeal,1,false);
 	break;
 	
 	default:

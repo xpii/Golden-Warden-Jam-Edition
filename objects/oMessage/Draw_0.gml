@@ -23,9 +23,11 @@ if(enable) {
 		// OK
 		drawSetMid();
 		draw_text(_x3+sprite_width/2, _y3+sprite_height/2, "OK");
+		
+		draw_sprite(pic, page-1, x, y+h/2);
 	
 		var _page = string_insert(page, string_insert(maxPage, "/", 2), 0);
-		draw_text(x + w_max/2, y+h, _page);
+		draw_text(x + w_max/2, y+h + margin/2, _page);
 	
 		drawSetDefault();
 	}

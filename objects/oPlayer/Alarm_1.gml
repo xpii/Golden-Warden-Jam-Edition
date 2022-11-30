@@ -13,10 +13,14 @@ if(target != noone) {
 		var _damage = min(other.remain_move, hp);
 		damage(self, _damage);
 		other.remain_move -= _damage;
-				
+		
+		// ラストの宝箱は例外的に通り抜け不可　倒しても不可
+		if(current_depth == oGame.max_depth) {
+			other.remain_move = 0;
+		}
+		
 		// 敵の一マス後ろに敵がいる or ガードしていたなら通り抜け不可
-		if(place_meeting(x+TILESIZE, y, pEnemy) || _guard || current_depth == oGame.max_depth) {
-					
+		else if(place_meeting(x+TILESIZE, y, pEnemy) || _guard) {	
 			// 敵を倒せたならそのマスに移動
 			if(hp <= 0) move();
 		}
@@ -25,6 +29,8 @@ if(target != noone) {
 		else {
 			repeat(2) move();	// 二マス移動（敵を通り抜ける）
 		}
+		
+		audio_play_sound(snSlash, 1, false);
 	}
 	// 次の移動
 	sprite_index = sPlayerSlash;

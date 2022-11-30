@@ -1,8 +1,7 @@
 /// @description 
 
-if(level == 0) {
-	
 	var _flash = 11;
+if(level == 0) {
 	
 	// タイトルとか
 	drawSetMid();
@@ -12,10 +11,11 @@ if(level == 0) {
 	else draw_set_color(c_white);
 	
 	draw_set_font(fnEngBig);
-	draw_text(x, y, "Title");
+	draw_sprite(sLogo, 0, x, y-48);
 
-	draw_set_font(fnEng);
-	draw_text(x, y+16, "Press enter to start");
+	draw_set_font(fnJP);
+	if(lang == LANG.ENG) draw_text(x, y+32, "Click to start");
+	else draw_text(x, y+32, "クリックしてスタート");
 	
 	// クレジット
 	draw_set_color(c_white);
@@ -36,17 +36,88 @@ if(level == 0) {
 	if(menu == 3 && floor(flash/_flash)%2 == 0) draw_set_color(c_aqua);
 	else draw_set_color(c_white);
 	
-	if(lang == LANG.ENG) {
-		// draw_sprite(sDice3, floor(lang_image_index/2), 64, 16);
-		draw_text(80, 16, "ENG");
-	}
-	else if(lang == LANG.JP) {
-		// draw_sprite(sDice, floor(lang_image_index/2), 64, 16);
-		draw_text(80, 16, "JP");
-	}
-	
+	draw_sprite(sEarth, 0, 56, 16);
+	if(lang == LANG.ENG) draw_text(80, 16, "ENG");
+	else draw_text(80, 16, "JP");
+
 	
 	drawSetDefault();
+}
+
+// クレジット
+else if(level == -1) {
+	
+	drawSetMid();
+	draw_set_font(fnJP);
+	draw_set_color(c_white);
+	draw_text(room_width * 0.5, room_height * 0.15, "Credit");
+	
+	drawSetDefault();
+	draw_set_font(fnJP);
+	draw_text(room_width * 0.3, room_height * 0.25, "Program, Art : xpii\nMusic        : rotteruo\nSE           : SKIPMORE\nTitle font   : ゆうたONE");
+	
+	drawSetMid();
+	draw_text(room_width * 0.5, room_height * 0.55, "This game was made for Game Off 2022.");
+	// flash
+	if(floor(flash/_flash)%2 == 0) draw_set_color(c_aqua);
+	else draw_set_color(c_white);
+	draw_text(room_width * 0.5, room_height * 0.9, "Click to return");
+}
+
+// ゲームクリアメッセージ
+else if(instance_exists(oBoxOpened)) {
+	with(oBoxOpened) {
+		if(lastTresure && other.canClick) {
+			oGame.control = false;
+			
+			drawSetMid();
+			draw_set_font(fnJP);
+			draw_set_color(c_white);
+
+			
+			if(other.lang == LANG.JP) var _text = "おめでとう!!\nオタカラを てにいれたぞ!!";
+			else var _text = "Congratulation!!\nYou got tresure!!";
+			
+			// 縁取り
+			draw_set_color(c_black);
+			draw_text(room_width/2+1, TILESIZE+1, _text);
+				
+			// flash
+			if(floor(other.flash/_flash)%2 == 0) draw_set_color(c_aqua);
+			else draw_set_color(c_white);
+			
+			draw_text(room_width/2, TILESIZE, _text);
+			
+			if(returnTitle) {
+				draw_set_color(c_white);
+				if(other.lang == LANG.JP) draw_text(room_width/2, room_height*0.9, "クリックしてタイトルにもどる");	
+				else draw_text(room_width/2, room_height*0.9, "Click to return");	
+			}
+			drawSetDefault();
+		}
+	}
+}
+
+else if(gameover) {
+	drawSetMid();
+	draw_set_font(fnJP);
+	if(canClick) {
+		if(other.lang == LANG.JP) draw_text(room_width/2, TILESIZE, "ゲームオーバー\nクリックしてリトライ");
+		else draw_text(room_width/2, TILESIZE, "Game Over\nclick to restart");
+	}
+	else {
+		if(other.lang == LANG.JP) draw_text(room_width/2, TILESIZE, "ゲームオーバー");
+		else draw_text(room_width/2, TILESIZE, "Game Over");
+	}
+	oGame.control = false;
+	
+	drawSetDefault();
+	
+	if(mouse_check_button_pressed(mb_left) && canClick) {
+		gameover = false;
+		level = 1;
+		room_goto(rStage);
+	}
 }
 
 

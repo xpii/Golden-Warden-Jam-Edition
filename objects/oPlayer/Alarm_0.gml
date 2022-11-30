@@ -20,6 +20,7 @@ if(remain_move > 0) {
 	if(!_slashed) {
 		move();
 		remain_move--;
+		audio_play_sound(snMove, 1, false);
 		
 		// 一定時間後にまた移動
 		if(remain_move > 0) alarm[0] = TURNSTEP;

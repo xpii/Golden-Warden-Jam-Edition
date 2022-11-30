@@ -15,5 +15,6 @@ maxPage = 3;
 page = 1;
 
 type = 0;		// 表示されるメッセージ、画像の種類
+pic = sPic1;
 
 alarm[11] = 1;

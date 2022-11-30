@@ -14,6 +14,7 @@ if(enable) {
 	if(w == w_max && h == h_max && point_in_rectangle(mouse_x, mouse_y, _x1, _y1, x+w, y+h)) {
 		//image_index = 1;
 		if(mouse_check_button_pressed(mb_left)) {
+			audio_play_sound(snClick,1,false);
 			if(page == maxPage) instance_destroy();
 			else page ++;	
 		}

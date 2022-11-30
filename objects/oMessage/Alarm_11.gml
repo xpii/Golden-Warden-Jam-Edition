@@ -13,16 +13,17 @@ switch(type) {
 		text[1] = "You can explore\nusing Action Cards.\nYou walk and attack\nas per the Action Card.";
 		text[2] = "After you move,\nthe tile under\nyour feet operates.\nThen the enemy moves.";
 	}
+	
 	break;
 	
 	// スラッシュについて
 	case 1:
 	if(oMain.lang == LANG.JP) {
-		maxPage = 3;
+		maxPage = 4;
 		text[0] = "てきのいるマスに すすもうとするとき\nスラッシュをおこなう\nスラッシュは のこりのすうじのかずだけ\nダメージをあたえ てきのうしろに とおりぬける";
 		text[1] = "てきのHPよりすうじがおおきければ \nスラッシュのあと そのぶんだけ いどうできる";
-		text[2] = "てきのうしろに てきがいたり\nてきが シールドをつかっていると\nとおりぬけ できない\nそのばあいは てきをたおせたとき\nてきのいたマスにいどうする";
-	break;
+		text[2] = "てきのうしろに てきがいたり\nてきが シールドをつかっていると\nとおりぬけ できない";
+		text[3] = "そのばあいは てきをたおせたとき\nてきのいたマスにいどうする";
 	}
 	else {
 		maxPage = 4;
@@ -31,5 +32,6 @@ switch(type) {
 		text[2] = "You can't move \nbehind the enemy \nif enemy's back is full \nor enemy uses the shield.";
 		text[3] = "If you kill the enemy \nat that time, \nyou move to \nwhere the enemy was.";
 	}
+	pic = sPic2;
 	break;
 }

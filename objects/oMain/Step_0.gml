@@ -13,18 +13,20 @@ if(level == 0) {
 	if(mouse_y > room_height*0.88) menu = 1;
 	else if(mouse_x < room_height*0.12 && mouse_y < room_height*0.12) menu = 2;
 	else if(mouse_x < room_width*0.22 && mouse_y < room_height*0.12) menu = 3;
-	else menu = 0;
+	else if(mouse_x > room_width*0.25 && mouse_x < room_width*0.75) menu = 0;
+	else menu = -1;
 	
 	// メニュー決定
 	if(mouse_check_button_pressed(mb_left)) {
+		if(menu != -1) audio_play_sound(snClick, 1, false);
 		// ゲームスタート
 		if(menu == 0) {
-			level++;
+			level = 1;
 			room_goto(rStage);
 		}
 		// クレジット表示
 		else if(menu == 1){
-
+			level = -1;
 		}
 		
 		// 音量変更
@@ -41,11 +43,17 @@ if(level == 0) {
 			with(oMessage) alarm[11] = 1;
 		}
 	}
-	
-	
-	flash ++;
-	if(flash > 220) flash -= 220;
 }
 
+// クレジット
+else if(level == -1) {
+	// 戻る
+	if(mouse_check_button_pressed(mb_left)) {
+		audio_play_sound(snClick, 1, false);
+		level = 0;	
+	}
+}
 
+flash ++;
+if(flash > 220) flash -= 220;
 

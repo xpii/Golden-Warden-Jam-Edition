@@ -13,9 +13,11 @@ function tileEffect(){
 					text = "+1 coin"
 				}
 				instance_create_layer(other.x,other.y,"Mobs",oCoin);
+				audio_play_sound(snCoin,1,false);
 			}
 			else if(type == TILE_HP) {
 				other.hp = min(other.hp+1, other.maxHp);
+				audio_play_sound(snHeal,1,false);
 				
 				// 表示
 				with(instance_create_layer(x,y-16,"info",oLog)) {
@@ -69,4 +71,5 @@ function boom() {
 	}
 	
 	damage(oPlayer, 2);
+	audio_play_sound(snExplode, 1, false);
 }

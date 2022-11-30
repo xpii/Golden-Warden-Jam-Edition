@@ -14,6 +14,7 @@ function attack(_weapon, _target, _dir){
 					if(_dir = LEFT) image_xscale = -1;
 				}
 				damage(self, other.atk+1);
+				audio_play_sound(snAtk, 1, false);
 				other.weapon = 0
 				
 				break;
@@ -46,6 +47,7 @@ function attack(_weapon, _target, _dir){
 						target = oPlayer;
 					}
 				}
+				audio_play_sound(snAtkBow, 1, false);
 				other.weapon = 0
 				break;
 			}
@@ -75,6 +77,7 @@ function attack(_weapon, _target, _dir){
 			   _dir == LEFT && current_depth = other.current_depth - 1) {
 				
 				damage(self, other.atk+1);
+				audio_play_sound(snAtk, 1, false);
 				other.weapon = 0;
 			}
 		}
@@ -97,6 +100,7 @@ function attack(_weapon, _target, _dir){
 		with(_target) {
 			if(current_depth = other.current_depth + 1 || current_depth = other.current_depth - 1) {
 				damage(self, other.atk+1);
+				audio_play_sound(snAtk, 1, false);
 				other.weapon = 0;
 			}
 		}
@@ -133,6 +137,7 @@ function attack(_weapon, _target, _dir){
 			// エフェクト
 			
 			if(other.object_index == oPlayer) other.alarm[0] = TURNSTEP;	// 連続攻撃の処理
+			audio_play_sound(snAtkXBow, 1, false);
 		}
 	}
 	else {
@@ -165,17 +170,24 @@ function damage(_target, _amount) {
 		with(instance_create_layer(x,y,"info",oLog)) {
 			if(other.guard) {
 				text = "Blocked"
+				audio_play_sound(snBlock, 1, false);
 			}
 			else {	
 				text = _amount*(-1);
 				color = c_red;
+				repeat(3) instance_create_layer(x,y,"Particle",oSmoke);
 			}
 		}
 		
 		if(guard) guard = false;	// シールドがあればガード
 		else hp = max(0,hp-_amount);
 		
-		
+		// HP低下警告
+		if(_target == oPlayer) {
+			if(_target.hp <= _target.maxHp/3 && hp > 0) audio_play_sound(snLowHP,1,false);
+		}
+		// 倒したら追加でモク
+		if(hp <= 0) repeat(5) instance_create_layer(x,y,"Particle",oSmoke);
 	}
 	
 }

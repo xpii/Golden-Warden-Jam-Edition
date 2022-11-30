@@ -31,6 +31,8 @@ if(oGame.control) {
 			}
 		}
 	}
+	
+	audio_play_sound(snStair, 1, false);
 }
 
 // 終了

@@ -13,6 +13,9 @@ function move(){
 			with(oLog) {
 				x_goto -= TILESIZE;
 			}
+			
+			with(oSmoke) x -= TILESIZE;
+
 		}
 	}
 }
@@ -30,6 +33,7 @@ function back(){
 		with(oLog) {
 			x_goto += TILESIZE;
 		}
+		with(oSmoke) x += TILESIZE;
 	}
 }
 
@@ -51,7 +55,7 @@ function generate(){
 		}
 	}
 	
-	if(oMain.level > 4) {
+	if(oMain.level < 4) {
 		// ショップの生成（ステージの中盤あたりに一つ）
 		var _num = irandom_range(20, 30);
 		with(oTile) {
