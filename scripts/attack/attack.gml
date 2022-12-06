@@ -62,6 +62,7 @@ function attack(_weapon, _target, _dir){
 		with(instance_create_layer(x, y, "Mobs", oGuard)) {
 			follow = other;	
 		}
+		audio_play_sound(snBlock, 1, false);
 		guard = true;
 		weapon = 0
 		if(object_index == oPlayer) alarm[0] = TURNSTEP;

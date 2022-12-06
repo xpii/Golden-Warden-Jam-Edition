@@ -54,6 +54,29 @@ else if(level == -1) {
 	}
 }
 
+// ゲームオーバーとリトライ
+else if(gameover) {
+	if(mouse_check_button_pressed(mb_left) && canClick) {
+		// リストの初期化
+		ds_list_clear(perks);
+		ds_list_clear(weapons);
+
+		for(var _i=1; _i<10; _i++) {
+			ds_list_add(perks, _i);
+		}
+		ds_list_delete(perks, ds_list_find_index(perks, PERK_BOMB_ADD));
+
+		// 初期武器リスト
+		ds_list_add(weapons, WEP_SWORD);
+		ds_list_add(weapons, WEP_BOW);
+		ds_list_add(weapons, WEP_SHIELD);
+		
+		gameover = false;
+		level = 1;
+		room_goto(rStage);
+	}
+}
+
+
 flash ++;
 if(flash > 220) flash -= 220;
-

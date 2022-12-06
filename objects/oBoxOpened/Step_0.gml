@@ -18,8 +18,6 @@ if(lastTresure) {
 	}
 	
 	if(returnTitle && mouse_check_button_pressed(mb_left)) {
-		oMain.level = 0;
-		room_goto(rTitle);
-		//game_restart();
+		oMain.alarm[11] = 1;
 	}
 }

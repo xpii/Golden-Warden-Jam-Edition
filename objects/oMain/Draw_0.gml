@@ -112,12 +112,6 @@ else if(gameover) {
 	oGame.control = false;
 	
 	drawSetDefault();
-	
-	if(mouse_check_button_pressed(mb_left) && canClick) {
-		gameover = false;
-		level = 1;
-		room_goto(rStage);
-	}
 }
 
 
