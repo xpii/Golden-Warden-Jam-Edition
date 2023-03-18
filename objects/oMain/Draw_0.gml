@@ -54,10 +54,10 @@ else if(level == -1) {
 	
 	drawSetDefault();
 	draw_set_font(fnJP);
-	draw_text(room_width * 0.3, room_height * 0.25, "Program, Art : xpii\nMusic        : rotteruo\nSE           : SKIPMORE\nTitle font   : ゆうたONE");
+	draw_text(room_width * 0.3, room_height * 0.25, "Program, Art   : xpii\nMusic          : rotteruo\nSE             : SKIPMORE\nTitle font     : ゆうたONE\nSpecial thanks : CROWsan");
 	
 	drawSetMid();
-	draw_text(room_width * 0.5, room_height * 0.55, "This game was made for Game Off 2022.");
+	draw_text(room_width * 0.5, room_height * 0.60, "This game was made for Game Off 2022.");
 	// flash
 	if(floor(flash/_flash)%2 == 0) draw_set_color(c_aqua);
 	else draw_set_color(c_white);

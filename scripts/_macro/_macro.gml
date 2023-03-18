@@ -48,5 +48,5 @@
 #macro TILE_BOX 7
 
 // クレジット
-#macro VERSION "ver 1.0.0"
+#macro VERSION "ver 1.0.1"
 #macro COPYRIGHT "(c)2022 xpii"

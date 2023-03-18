@@ -9,8 +9,11 @@ if(target != noone) {
 		with(instance_create_layer(x,y-16,"info",oLog)) {
 			text = "Slash!"
 		}
-		// 移動力だけダメージ　与えたダメージだけ移動力を減らす
-		var _damage = min(other.remain_move, hp);
+		// 移動力分のダメージを与える
+		var _damage;
+		if(!_guard) _damage = min(other.remain_move, hp); // 敵に与えられるダメージだけ移動力を減らす
+		else _damage = other.remain_move;				  // 敵がガード中なら移動力全て消費する	
+		
 		damage(self, _damage);
 		other.remain_move -= _damage;
 		
